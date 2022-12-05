@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\NomineeController;
 use App\Http\Controllers\UserInformationController;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +30,7 @@ Route::view('/terms','layouts.terms');
     Route::resource('/departments', DepartmentController::class);
     Route::resource('/userinformations', UserInformationController::class);
     Route::resource('/addresses', AddressController::class);
+    Route::resource('/nominees', NomineeController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

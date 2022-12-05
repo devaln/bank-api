@@ -54,7 +54,7 @@ class ManagerController extends Controller
         ]);
 
         $manager->update($request->all());
-        return redirect()->route('customers.index')->with('success','Manager updated successfully');
+        return redirect()->route('managers.index')->with('success','Manager updated successfully');
     }
 
     

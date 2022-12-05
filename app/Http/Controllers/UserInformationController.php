@@ -27,13 +27,15 @@ class UserInformationController extends Controller
 
     public function create()
     {
-        return view('userinformations.create');
+        $user_role = User::all();
+        return view('userinformations.create', compact('user_role'));
     }
 
 
     public function store(Request $request)
     {
         $request->validate([
+            'user_id'=>'required',
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -52,12 +54,14 @@ class UserInformationController extends Controller
 
     public function show(User_information $userinformation)
     {
-        return view('userinformations.show',compact('userinformation'));
+        $user_role = User::all();
+        return view('userinformations.show',compact('userinformation', 'user_role'));
     }
 
 
     public function edit(User_information $userinformation)
     {
+        // $user_role = User::whereStatus('on')->get();
         return view('userinformations.edit',compact('userinformation'));
     }
 
@@ -66,6 +70,7 @@ class UserInformationController extends Controller
     {
 
         $request->validate([
+            'user_id' => ['required', 'unique:user_id'],
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',

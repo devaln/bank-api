@@ -26,13 +26,13 @@ class EmployeeController extends Controller
         $request->validate([
             'education'=>'required',
             'date_of_joining'=>'required|before:tomorrow',
-            'work_status'=>'required',
+            'work_status'=>'',
             'designation'=>'required',
             'official_email'=>'required|email',
         ]);
 
         Employee::create($request->all());
-        return redirect()->route('employee.index')->with('Success', 'Employee created successfully.');
+        return redirect()->route('employees.index')->with('Success', 'Employee created successfully.');
 
     }
 
@@ -54,7 +54,7 @@ class EmployeeController extends Controller
         $request->validate([
             'education'=>'required',
             'date_of_joining'=>'required|before:tomorrow',
-            'work_status'=>'required',
+            'work_status'=>'',
             'designation'=>'required',
             'official_email'=>'required|email',
         ]);

@@ -42,9 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function user_information()
+    public function userinformation()
     {
-        return $this->hasOne(User_information::class);
+        return $this->hasOne(User_information::class, 'user_id');
     }
 
     public function setUsernameAttribute($value) 

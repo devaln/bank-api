@@ -11,4 +11,10 @@ class Employee extends Model
     protected $table = "employees";
     public $timestamps = true;
     protected $fillable = ['education','date_of_joining','work_status','designation','official_email'];
+
+    public function userinformation()
+    {
+        return $this->morphOne(User_information::class, 'data');
+    }
+
 }
