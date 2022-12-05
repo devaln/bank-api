@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+<div class="container">
 <br><br>
     <div class="row text-center">
         <div class="col-lg-12 margin-tb">
@@ -16,6 +16,7 @@
                     <th>First Name</th>
                     <th>Middle Name</th>
                     <th>last Name</th>
+                    <th>User Email</th>
                     <th>Contact</th>
                     <th>Birth Date</th>
                     <th>gender</th>
@@ -26,10 +27,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ ++$i }}</td>
                     <td>{{ $userinformation->first_name }}</td>
                     <td>{{ $userinformation->middle_name }}</td>
                     <td>{{ $userinformation->last_name }}</td>
+                    <td>{{ $userinformation->$user_role->email }}</td>
                     <td>{{ $userinformation->contact }}</td>
                     <td>{{ $userinformation->date_of_birth }}</td>
                     <td>{{ $userinformation->gender }}</td>
@@ -43,4 +44,5 @@
             <a class="btn btn-primary" href="{{ route('userinformations.index') }}"> Back</a>
         </div>
     </div>
+</div>
 @endsection

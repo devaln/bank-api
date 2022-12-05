@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+<div class="container">
 <br><br>
     <div class="row text-center">
         <div class="col-lg-12 margin-tb">
@@ -34,4 +34,5 @@
             <a class="btn btn-primary" href="{{ route('addresses.index') }}"> Back</a>
         </div>
     </div>
+</div>
 @endsection

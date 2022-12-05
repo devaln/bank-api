@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+<div class="container">    
 <br><br>
     <div class="row text-center">
         <div class="col-lg-12 margin-tb">
@@ -25,7 +25,7 @@
                     <td>{{ $employee->education }}</td>
                     <td>{{ $employee->date_of_joining }}</td>
                     <td>{{ $employee->designation }}</td>
-                    <td>{{ $employee->offical_email }}</td>
+                    <td>{{ $employee->official_email }}</td>
                     
                 </tr>
             </tbody>
@@ -34,4 +34,5 @@
             <a class="btn btn-primary" href="{{ route('employees.index') }}"> Back</a>
         </div>
     </div>
+</div>
 @endsection

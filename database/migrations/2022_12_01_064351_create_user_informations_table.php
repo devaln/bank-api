@@ -27,6 +27,7 @@ return new class extends Migration
             $table->enum('maritial_status',['Unmarried','Married','Divorced']);
             $table->integer('adhaar_card_number');
             $table->integer('pan_card_number');
+            $table->morphs('login');
 
             // $table->boolean('status');
             // $table->boolean('deleted_at');

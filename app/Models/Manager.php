@@ -11,4 +11,9 @@ class Manager extends Model
     protected $table = "managers";
     public $timestamps = true;
     protected $fillable = ['designation'];
+
+    public function userinformation()
+    {
+        return $this->morphOne(User_information::class, 'data');
+    }
 }

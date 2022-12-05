@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -82,6 +83,15 @@
                         <input type="radio" id="mstatus" name="maritial_status" value="Divorced">&nbsp;Divorced&nbsp;&nbsp;
                     </div>
                 </div>
+                <div class="col-md-6 mb-3">
+                          <label class="control-label" for="select2-user_id">User Role:</label> 
+                          <abbr title="Required">*</abbr>
+                          <select id="select2-user_id" class="form-control" name="user_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
+                            @foreach ($user_role as $user_roles)
+                              <option value="{{$user_roles->user_id}}">{{$user_roles->user_id}}</option>
+                            @endforeach
+                          </select>
+                        </div><!-- /.form-group -->
                 <div>
                     <a class="btn btn-primary" href="{{ route('userinformations.index') }}"> Back</a>
                     <button type="submit" class="btn btn-success">Submit</button>
@@ -89,4 +99,5 @@
             </div>
         </div>
     </form>
+</div>
 @endsection

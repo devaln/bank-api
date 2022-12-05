@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="center">
         <div class="col-lg-12 margin-tb">
             <form action="" class=" mt-4">
@@ -51,4 +52,5 @@
 @if ($search == "")
     {!! $customers->links() !!}
 @endif
+</div>
 @endsection

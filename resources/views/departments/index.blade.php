@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="center">
         <div class="col-lg-12 margin-tb">
             <form action="" class=" mt-4">
@@ -31,7 +32,7 @@
             @foreach ($departments as $department)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $department->nmae }}</td>
+                <td>{{ $department->name }}</td>
                 <td>{{ $department->employee_count }}</td>
                 <td>
                 <form action="{{ route('departments.destroy',$department->id) }}" method="POST">
@@ -45,5 +46,5 @@
             @endforeach
         </tbody>
     </table>
-
+</div>
 @endsection

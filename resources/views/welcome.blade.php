@@ -35,12 +35,7 @@
                     @endauth
                 </div>
             @endif
-            <div class=" fixed top-0 left-0 px-6 py-4 sm:block">
-            <a href="{{ url('/customers') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Customers</a>
-            <a href="{{ url('/employees') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Employees</a>
-            <a href="{{ url('/managers') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Managers</a>
-            <a href="{{ url('/departments') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Department</a>
-
+           
             </div>
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">

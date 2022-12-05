@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
     <div class="center">
         <div class="col-lg-12 margin-tb">
             <form action="" class=" mt-4">
@@ -37,7 +38,7 @@
                 <td>{{ $employee->education }}</td>
                 <td>{{ $employee->date_of_joining }}</td>
                 <td>{{ $employee->designation }}</td>
-                <td>{{ $employee->offical_email }}</td>
+                <td>{{ $employee->official_email }}</td>
                 <td>
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('employees.show',$employee->id) }}">Show</a>
@@ -50,5 +51,5 @@
             @endforeach
         </tbody>
     </table>
-
+</div>
 @endsection
