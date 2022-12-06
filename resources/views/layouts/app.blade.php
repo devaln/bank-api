@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -41,7 +41,7 @@
                 <!-- Image Logo -->
                 <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>  
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ ('Laravel') }}
                 </a>
 
                 <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" aria-label="{{ __('Toggle navigation') }}">

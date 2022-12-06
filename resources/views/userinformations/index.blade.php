@@ -29,9 +29,10 @@
                 <th>Contact</th>
                 <th>Birth Date</th>
                 <th>gender</th>
-                <th>pan_card_number</th>
-                <th>adhaar_card_number</th>
-                <th>mirital_status</th>
+                <th>Pan Card Number</th>
+                <th>Adhaar Card Number</th>
+                <th>Maritial Status</th>
+                <th>Profile Image</th>
               
                 <th><a class="form-control btn btn-success" href="{{ route('userinformations.create') }}"> Add userinformation</a></th>
             </tr>
@@ -49,6 +50,7 @@
                 <td>{{ $userinformation->pan_card_number }}</td>
                 <td>{{ $userinformation->adhaar_card_number }}</td>
                 <td>{{ $userinformation->maritial_status }}</td>
+                <td><img src="images/{{ Session::get('image') }}" height="50px" width="50px"></td>
                 <td>
                 <form action="{{ route('userinformations.destroy',$userinformation->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('userinformations.show',$userinformation->id) }}">Show</a>
