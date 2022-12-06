@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AvatarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DepartmentController;
@@ -15,10 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::view('/2', 'userinformation.create');
-// Route::view('/3', 'userinformation.edit');
-// Route::view('/4', 'userinformation.show');
-// Route::view('/1', 'userinformation.index');
 Route::view('/index2','layouts.index2');
 Route::view('/privacy','layouts.privacy');
 Route::view('/project','layouts.project');
@@ -31,6 +28,8 @@ Route::view('/terms','layouts.terms');
     Route::resource('/userinformations', UserInformationController::class);
     Route::resource('/addresses', AddressController::class);
     Route::resource('/nominees', NomineeController::class);
+    // Route::get('/crud', 'Admin\Dashboard');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

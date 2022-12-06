@@ -35,7 +35,7 @@ class UserInformationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id'=>'required',
+            'user_id'=>'',
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -45,10 +45,14 @@ class UserInformationController extends Controller
             'pan_card_number' => 'required',
             'adhaar_card_number' => 'required',
             'maritial_status' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
         User_information::create($request->all());
-        return redirect()->route('userinformations.index')->with('success','userinformation created successfully.');
+        return back()->with('success','userinformation created successfully.')->with('image',$imageName); 
+
+        // return redirect()->route('userinformations.index')->with('success','userinformation created successfully.');
     }
 
 
@@ -71,6 +75,7 @@ class UserInformationController extends Controller
 
         $request->validate([
             'user_id' => ['required', 'unique:user_id'],
+            'user_id' => ['', ''],
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -80,11 +85,16 @@ class UserInformationController extends Controller
             'pan_card_number' => 'required',
             'adhaar_card_number' => 'required',
             'maritial_status' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         
         ]);
-
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
         $userinformation->update($request->all());
-        return redirect()->route('userinformations.index')->with('success','User updated successfully');
+        return back()->with('success','Userinformation created successfully.')->with('image',$imageName); 
+        
+        // User_information::create($request->all());
+        // return redirect()->route('userinformations.index')->with('success','User updated successfully');
     }
 
 
@@ -94,3 +104,5 @@ class UserInformationController extends Controller
         return redirect()->route('userinformations.index')->with('success','User deleted successfully');
     }
 }
+
+

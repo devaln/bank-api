@@ -20,9 +20,10 @@
                     <th>Contact</th>
                     <th>Birth Date</th>
                     <th>gender</th>
-                    <th>pan_card_number</th>
-                    <th>adhaar_card_number</th>
-                    <th>mirital_status</th>
+                    <th>Pan Card Number</th>
+                    <th>Adhaar Card Number</th>
+                    <th>Maritial Status</th>
+                    <th>Profile Image</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                     <td>{{ $userinformation->pan_card_number }}</td>
                     <td>{{ $userinformation->adhaar_card_number }}</td>
                     <td>{{ $userinformation->maritial_status }}</td>
+                    <td><img src="images/{{ Session::get('image') }}" height="50px" width="50px"></td>
                 </tr>
             </tbody>
         </table>
