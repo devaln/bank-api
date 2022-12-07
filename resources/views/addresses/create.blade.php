@@ -10,7 +10,7 @@
     </div>
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> something we are problems with your input.<br><br>
+            <label class="col-md-4 col-form-label text-md-end">Whoops!</label> something we are problems with your input.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -19,42 +19,77 @@
         </div>
     @endif
     <form action="{{ route('addresses.store') }}" method="POST">
-        <legend align="left">Fill required detail below :-</legend>
         @csrf
-        <div align="center">
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Education :</strong>
-                    <input type="text" name="education"  class="form-control" placeholder="">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Joining Date :</strong>
-                    <input type="date" name="date_of_joining"  class="form-control" placeholder="">
-                </div>
-            </div>
-                <label for="logintype" class="col-md-4 col-form-label text-md-end">{{ __('Login Type :') }}</label>
+        <div  class="card" align="center">
+            <div class="card-body">
+                <legend align="left">Fill required detail below :-</legend><br>
+                <label class="col-md-4 col-form-label text-md-end">City Name:</label>
                 <div class="col-md-6">
-                    <select class="form-select" id="logintype" aria-label="Default select example" required>
+                    <input type="text" name="city_name"  class="form-control" placeholder="eg:'pune'">
+                </div>
+
+                <label class="col-md-4 col-form-label text-md-end">Landmark :</label>
+                <div class="col-md-6">
+                    <input type="text" name="landmark"  class="form-control" placeholder="nearbylocation">
+                </div> 
+                
+                <label class="col-md-4 col-form-label text-md-end">Taluka :</label>
+                <div class="col-md-6">
+                    <input type="text" name="taluka"  class="form-control" placeholder="">
+                </div>
+                
+                <label class="col-md-4 col-form-label text-md-end">District :</label>
+                <div class="col-md-6">
+                    <input type="text" name="district"  class="form-control" placeholder="">
+                </div>
+
+                <label for="ab" class="col-md-4 col-form-label text-md-end">{{ __('State :') }}</label>
+                <div class="col-md-6">
+                    <select class="form-select" id="ab" name="state" aria-label="Default select example" required>
                         <option selected>Open this select menu</option>
-                        <option name="work_status" value="Active">Active</option>
-                        <option name="work_status" value="Logout">Logout</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
                     </select>
                 </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Designation :</strong>
-                    <input type="text" name="designation"  class="form-control" placeholder="">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Official Email :</strong>
-                    <input type="email" name="official_email"  class="form-control" placeholder="">
-                </div>
-            </div>
+
+                <label class="col-md-4 col-form-label text-md-end">Pin-Code :</label>
+                <div class="col-md-6">
+                    <input type="integer" name="pincode"  class="form-control" placeholder="">
+                </div>  
 
                 <div class="col-xs-12 col-lg-12 col-md-12 text-center">
                     <a class="btn btn-primary" href="{{ route('addresses.index') }}"> Back</a>

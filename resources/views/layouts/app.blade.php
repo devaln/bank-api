@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    SEO Meta Tags -->
+    <!--SEO Meta Tags -->
     <meta name="description" content="Your description">
     <meta name="author" content="Your name">
 
@@ -18,7 +18,7 @@
 	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
 
     <!-- Webpage Title -->
-    <title>Mark Webpage Title</title>
+    <title>Bank api</title>
     <!-- Styles -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
     <link href="css/fontawesome-all.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/newlogo.jpg">
 	
     <!-- b5 - scripts -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -37,9 +37,9 @@
     <div id="app">
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-            <div class="container">
+            <!-- <div class="container"> -->
                 <!-- Image Logo -->
-                <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>  
+                <a class="navbar-brand logo-image" href="{{ url('index2') }}"><img src="images/newlogo.jpg" ></a>  
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ ('Laravel') }}
                 </a>
@@ -62,9 +62,9 @@
                                 </li>
                             @endif
                             @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->email }}
+                            <li class="nav-link">
+                                <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> -->
+                                   <a> {{ Auth::user()->email }}
                                 </a>
                             <li class="nav-item">
                                 <a class="nav-link page-scroll" href="/home">Home <span class="sr-only">(current)</span></a>
@@ -84,35 +84,42 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item page-scroll" href="{{url('/privacy')}}">Privacy Policy</a>
                                     <div class="dropdown-divider"></div>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/customers')}}">Customers</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/employees')}}">Employees</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/manager')}}">Managers</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/departments')}}">Departments</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/addresses')}}">Addresses</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/userinformations')}}">User Informations</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item page-scroll" href="{{url('/nominees')}}">Nominees</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>                           
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                    
                                 </div>
                             </li>
-                        @endguest
+                       
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#contact">Contact</a>
                         </li>
+                        <!-- operations -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opreations</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                                <a class="dropdown-item page-scroll" href="{{url('/customers')}}">Customers</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/employees')}}">Employees</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/manager')}}">Managers</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/departments')}}">Departments</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/addresses')}}">Addresses</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/userinformations')}}">User Informations</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item page-scroll" href="{{url('/nominees')}}">Nominees</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>                           
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
                     </ul>
                     <!-- <span class="nav-item social-icons"> 
                         <span class="fa-stack">
@@ -123,9 +130,10 @@
                         </span>
                     </span> -->
                 </div> <!-- end of navbar-collapse -->
-            </div> <!-- end of container -->
+           <!--  </div> --> <!-- end of container -->
         </nav> <!-- end of navbar -->
         <!-- end of navigation -->
+        @endelse
     </div>
     <div class="" align="center"><br><br>
         @yield('content')

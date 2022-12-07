@@ -34,7 +34,7 @@
                 <th>Maritial Status</th>
                 <th>Profile Image</th>
               
-                <th><a class="form-control btn btn-success" href="{{ route('userinformations.create') }}"> Add userinformation</a></th>
+                <th><a class="form-control btn btn-success" href="{{ route('userinformations.create') }}"> Add </a></th>
             </tr>
         </thead>
         <tbody>

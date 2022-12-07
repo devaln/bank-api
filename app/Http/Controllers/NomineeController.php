@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Nominee;
+use App\Models\User_information;
 use Illuminate\Http\Request;
 
 class NomineeController extends Controller
@@ -14,8 +15,8 @@ class NomineeController extends Controller
      */
     public function index()
     {
-        $nominees = Nominee::latest();
-        return view('nominees.index', compact('nominees'));
+        $nominees = Nominee::latest()->paginate(10);
+        return view('nominees.index', compact('nominees'))->with('i',(request()->input('page',1)-1)*10);
     }
 
     /**
@@ -25,6 +26,7 @@ class NomineeController extends Controller
      */
     public function create()
     {
+        $user_role = User_information::all();
         return view('nominees.create');
     }
 
@@ -57,6 +59,7 @@ class NomineeController extends Controller
      */
     public function show(Nominee $nominee)
     {
+        $user_role = User_information::all();
         return view('nominees.show', compact('nominee'));
     }
 
@@ -68,6 +71,7 @@ class NomineeController extends Controller
      */
     public function edit(Nominee $nominee)
     {
+        // $user_role = User_information::whereStatus('on')->get();
         return view('nominees.edit', compact('nominee'));
     }
 

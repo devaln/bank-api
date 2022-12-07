@@ -53,7 +53,7 @@ class DepartmentController extends Controller
             'employee_count'=>'required',
         ]);
 
-        $department->upload($request->all());
+        $department->update($request->all());
         return redirect()->route('departments.index')->with('Success','Department upodated successfully');
     }
 
