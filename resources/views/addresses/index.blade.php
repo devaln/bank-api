@@ -23,10 +23,13 @@
         <thead class="text-center bg-dark text-white">
             <tr>
                 <th>No</th>
-                <th>Education</th>
-                <th>jioning Date</th>
-                <th>Designation</th>
-                <th>Official E-Mail</th>
+                <th>City Name</th>
+                <th>Landmark</th>
+                <th>Taluka</th>
+                <th>District</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Pin Code</th>
               
                 <th><a class="form-control btn btn-success" href="{{ route('addresses.create') }}"> Add customer</a></th>
             </tr>
@@ -35,10 +38,13 @@
             @foreach ($addresses as $address)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $address->education }}</td>
-                <td>{{ $address->date_of_joining }}</td>
-                <td>{{ $address->designation }}</td>
-                <td>{{ $address->offical_email }}</td>
+                <td>{{ $address->city_name }}</td>
+                <td>{{ $address->landmark }}</td>
+                <td>{{ $address->taluka }}</td>
+                <td>{{ $address->district }}</td>
+                <td>{{ $address->state }}</td>
+                <td>{{ $address->country }}</td>
+                <td>{{ $address->pin_code }}</td>
                 <td>
                 <form action="{{ route('addresses.destroy',$address->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('addresses.show',$address->id) }}">Show</a>

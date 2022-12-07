@@ -13,20 +13,24 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Education</th>
-                    <th>jioning Date</th>
-                    <th>Designation</th>
-                    <th>Official E-Mail</th>
-                    
+                    <th>City Name</th>
+                    <th>Landmark</th>
+                    <th>Taluka</th>
+                    <th>District</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>Pin Code</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $address->education }}</td>
-                    <td>{{ $address->date_of_joining }}</td>
-                    <td>{{ $address->designation }}</td>
-                    <td>{{ $address->offical_email }}</td>
-                    
+                    <td>{{ $address->city_name }}</td>
+                    <td>{{ $address->landmark }}</td>
+                    <td>{{ $address->taluka }}</td>
+                    <td>{{ $address->district }}</td>
+                    <td>{{ $address->state }}</td>
+                    <td>{{ $address->country }}</td>
+                    <td>{{ $address->pin_code }}</td>
                 </tr>
             </tbody>
         </table>

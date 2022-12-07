@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('nominees', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_info_id')->unsigned()->index(); 
+            $table->foreign('user_info_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
