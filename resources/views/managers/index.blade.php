@@ -20,14 +20,14 @@
     </div>
     @endif
     <table class="table table-hover">
-        <thead class="text-center bg-dark text-white">
+        <thead class="text-center text-dark">
             <tr>
                 <th>No</th>
                 <th>Designation</th>
-                <th><a class="form-control btn btn-success" href="{{ route('managers.create') }}"> Add manager</a></th>
+                <th><a class=" btn btn-success" href="{{ route('managers.create') }}"> Add manager</a></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             @foreach ($managers as $manager)
             <tr>
                 <td>{{ ++$i }}</td>

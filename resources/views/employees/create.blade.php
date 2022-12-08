@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1 class="text-center bg-dark text-danger col-lg-12">Create Employee : </h1>
+                <h1 class="text-left text-danger col-lg-12">Create Employee : </h1>
             </div>
         </div>
     </div>
@@ -19,39 +19,39 @@
         </div>
     @endif
     <form action="{{ route('employees.store') }}" method="POST">
-        <legend align="left">Fill required detail below :-</legend>
+        <div class="card col-lg-6">
+        <legend class="ml-3 mb-4 mt-4" align="left">Fill required detail below :-</legend>
         @csrf
         <div align="center">
-            <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Education :</strong>
+            <div class="row mb-3">
+                <label class="col-md-4 col-form-label text-md-end">Education :</label>
+                <div class="col-md-5">
                     <input type="text" name="education"  class="form-control" placeholder="">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Joining Date :</strong>
+            <div class="row mb-3">
+                <label class="col-md-4 col-form-label text-md-end">Joining Date :</label>
+                <div class="col-md-5">
                     <input type="date" name="date_of_joining"  class="form-control" placeholder="">
                 </div>
             </div>
-                <label for="logintype" class="col-md-4 col-form-label text-md-end">{{ __('Login Type :') }}</label>
+                <!-- <label for="logintype" class="col-md-4 col-form-label text-md-end">{{ __('Login Type :') }}</label>
                 <div class="col-md-6">
                     <select class="form-select" id="logintype" aria-label="Default select example" required>
                         <option selected>Open this select menu</option>
                         <option name="work_status" value="Active">Active</option>
                         <option name="work_status" value="Logout">Logout</option>
                     </select>
-                </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Designation :</strong>
+                </div> -->
+            <div class="row mb-3">
+                <label class="col-md-4 col-form-label text-md-end">Designation :</label>
+                <div class="col-md-5">
                     <input type="text" name="designation"  class="form-control" placeholder="">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Official Email :</strong>
+            <div class="row mb-3">
+                <label class="col-md-4 col-form-label text-md-end">Official Email :</label>
+                <div class="col-md-5">
                     <input type="email" name="official_email"  class="form-control" placeholder="">
                 </div>
             </div>

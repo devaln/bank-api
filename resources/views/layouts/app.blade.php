@@ -8,6 +8,7 @@
     <meta name="description" content="Your description">
     <meta name="author" content="Your name">
 
+
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
 	<meta property="og:site_name" content="" /> <!-- website name -->
 	<meta property="og:site" content="" /> <!-- website link -->
@@ -43,6 +44,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ ('Laravel') }}
                 </a>
+                <a class="navbar-brand" href="{{ url('/crud') }}">
+                    {{ ('Operation') }}
+                </a>
 
                 <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -67,7 +71,7 @@
                                    <a> {{ Auth::user()->email }}
                                 </a>
                             <li class="nav-item">
-                                <a class="nav-link page-scroll" href="/home">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link page-scroll" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link page-scroll" href="#about">About</a>
@@ -99,7 +103,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item page-scroll" href="{{url('/employees')}}">Employees</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/manager')}}">Managers</a>
+                                <a class="dropdown-item page-scroll" href="{{url('/managers')}}">Managers</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item page-scroll" href="{{url('/departments')}}">Departments</a>
                                 <div class="dropdown-divider"></div>

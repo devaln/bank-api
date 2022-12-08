@@ -9,7 +9,7 @@
                 </div>
             </form>
             <div class="pull-left text-center">
-                <h1 class="text-center bg-light text-danger">Welcome To Customer Index page : </h1><hr><br>
+                <h1 class="text-left  text-danger">Welcome To Customer Index page : </h1><hr><br>
             </div>
             
         </div>
@@ -20,7 +20,7 @@
     </div>
     @endif
     <table class="table table-hover">
-        <thead class="text-center bg-dark text-white">
+        <thead class="text-center text-dark">
             <tr>
                 <th>No</th>
                 <th>Account Number</th>
@@ -30,7 +30,7 @@
                 <th><a class="form-control btn btn-success" href="{{ route('customers.create') }}"> Add customer</a></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             @foreach ($customers as $customer)
             <tr>
                 <td>{{ ++$i }}</td>

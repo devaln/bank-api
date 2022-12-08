@@ -21,16 +21,16 @@
     <form action="{{ route('departments.update',$department->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Department Name :</strong>
+    <div class="">
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Department Name :</label>
+            <div class="col-md-5">
                 <input type="text" name="name" value="{{ $department->name }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Employee Count :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Employee Count :</label>
+            <div class="col-md-5">
                 <input type="integer" name="employee_count" value="{{ $department->employee_count }}" class="form-control" placeholder="">
             </div>
         </div>
