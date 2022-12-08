@@ -3,15 +3,12 @@
 <div class="container">
     <div class="center">
         <div class="col-lg-12 margin-tb">
-            <form action="" class=" mt-4">
+            <form action="" class="">
                 <div class="form-group">
-                  <input type="text" name="search" id="" class="form-control bg-light text-dark" value="" placeholder="Search by Name">
+                    <input type="text" name="search" id="" class="form-control text-dark" value="" placeholder="Search by Name">
                 </div>
             </form>
-            <div class="pull-left text-center">
-                <h1 class="text-center bg-light text-danger">Welcome To Nominees Index page : </h1><hr><br>
-            </div>
-            
+            <h1 class="text-left text-danger mt-4">Welcome To Nominees Index page : </h1><hr>
         </div>
     </div>
     @if ($message = Session::get('success'))

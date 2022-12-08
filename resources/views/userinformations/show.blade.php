@@ -5,18 +5,18 @@
     <div class="row text-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1 class="text-center bg-dark text-danger"> User Detail : </h3>
+                <h1 class="text-left text-danger"> User Detail : </h3>
             </div>
         </div>
     </div><br>
     <div class="row text-center">
-        <table class="table table-hover">
+        <table class="table table-hover mt-4">
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Middle Name</th>
                     <th>last Name</th>
-                    <th>User Email</th>
+                    <!-- <th>Ussssssser Email</th> -->
                     <th>Contact</th>
                     <th>Birth Date</th>
                     <th>gender</th>
@@ -31,7 +31,7 @@
                     <td>{{ $userinformation->first_name }}</td>
                     <td>{{ $userinformation->middle_name }}</td>
                     <td>{{ $userinformation->last_name }}</td>
-                    <td>{{ $userinformation->$user_role->email }}</td>
+                    <!-- <td>z</td> -->
                     <td>{{ $userinformation->contact }}</td>
                     <td>{{ $userinformation->date_of_birth }}</td>
                     <td>{{ $userinformation->gender }}</td>

@@ -23,15 +23,15 @@
     @method('PUT')
     <div class="row">
         
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Designation :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Designation :</label>
+            <div class="col-md-5">
                 <input type="text" name="designation" value="{{ $manager->designation }}" class="form-control" placeholder="">
             </div>
         </div>
         
         
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <div class="mb-3text-center">
             <a class="btn btn-primary" href="{{ route('managers.index') }}"> Back</a>
             <button type="submit" class="btn btn-success">Update</button>
         </div>

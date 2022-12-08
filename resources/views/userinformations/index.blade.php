@@ -8,10 +8,7 @@
                   <input type="text" name="search" id="" class="form-control bg-light text-dark" value="" placeholder="Search by Name">
                 </div>
             </form>
-            <div class="pull-left text-center">
-                <h1 class="text-center bg-light text-danger">Welcome To userinformation Index page : </h1><hr><br>
-            </div>
-            
+            <h1 class="text-left text-danger">Welcome To User-Information Index page : </h1><hr><br>
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -20,9 +17,9 @@
     </div>
     @endif
     <table class="table table-hover">
-        <thead class="text-center bg-dark text-white">
+        <thead class="text-center text-dark">
             <tr>
-                <th>No</th>
+                <th>Sr.No</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>last Name</th>

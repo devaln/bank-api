@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1 class="text-center bg-dark text-danger col-lg-12">Create Employee : </h1>
+                <h1 class="text-left text-danger col-lg-12">Create Employee : </h1>
             </div>
         </div>
     </div>

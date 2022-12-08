@@ -5,7 +5,7 @@
     <div class="row text-center">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1 class="text-center bg-dark text-danger"> Employee Detail : </h3>
+                <h1 class="text-left  text-danger"> Employee Detail : </h3>
             </div>
         </div>
     </div><br>
@@ -20,7 +20,7 @@
                     
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <tr>
                     <td>{{ $employee->education }}</td>
                     <td>{{ $employee->date_of_joining }}</td>

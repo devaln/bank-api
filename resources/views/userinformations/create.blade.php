@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1 class="text-center bg-dark text-danger col-lg-12">Create User : </h1>
+                <h1 class="text-left text-danger col-lg-12 mb-4">Create User : </h1>
             </div>
         </div>
     </div>
@@ -25,11 +25,11 @@
     </div>
     <img src="images/{{ Session::get('image') }}">
     @endif
-    <form action="{{ route('userinformations.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('userinformations.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
-        <div class="card col-md-6"><br>
-            <legend class="ml-3" align="left">Fill required detail below :-</legend><br>
-            <div class="tect-center" align="center">
+        <div class="card col-md-6 mb-4"><br>
+            <legend class="ml-4 mb-3" align="left">Fill required detail below :-</legend><br>
+            <div class="text-center" align="center">
                 <div class="row mb-3">
                     <label class="col-md-4 col-form-label text-md-end" for="fname" >First Name :</label>
                     <div class="col-md-5">
@@ -90,7 +90,7 @@
                         <input type="radio" id="mstatus" name="maritial_status" value="Divorced">&nbsp;Divorced&nbsp;&nbsp;
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
+                <!-- <div class="col-md-6 mb-3">
                     <label class="control-label" for="select2-user_id">User Role:</label> 
                     <abbr title="Required">*</abbr>
                     <select id="select2-user_id" class="form-control" name="user_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
@@ -98,18 +98,15 @@
                         <option value="{{$user_roles->user_id}}">{{$user_roles->user_id}}</option>
                     @endforeach
                     </select>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="inputImage">Image:</label>
-                    <input 
-                        type="file" 
-                        name="image" 
-                        id="inputImage"
-                        class="form-control @error('image') is-invalid @enderror">
-    
-                    @error('image')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                </div> -->
+                <div class="row mb-3">
+                    <label class="col-md-4 col-form-label text-md-end" for="inputImage">Image:</label>
+                    <div class="col-md-5">
+                        <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">   
+                        @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
                 <div>
                     <a class="btn btn-primary" href="{{ route('userinformations.index') }}"> Back</a>

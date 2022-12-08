@@ -9,7 +9,7 @@
                 </div>
             </form>
             <div class="pull-left text-center">
-                <h1 class="text-center bg-light text-danger">Welcome To Employees Index page : </h1><hr><br>
+                <h1 class="text-left  text-danger">Welcome To Employees Index page : </h1><hr><br>
             </div>
             
         </div>
@@ -20,7 +20,7 @@
     </div>
     @endif
     <table class="table table-hover">
-        <thead class="text-center bg-dark text-white">
+        <thead class="text-center  text-dark">
             <tr>
                 <th>No</th>
                 <th>Education</th>
@@ -28,10 +28,10 @@
                 <th>Designation</th>
                 <th>Official E-Mail</th>
               
-                <th><a class="form-control btn btn-success" href="{{ route('employees.create') }}"> Add customer</a></th>
+                <th><a class=" btn btn-success" href="{{ route('employees.create') }}"> Add customer</a></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             @foreach ($employees as $employee)
             <tr>
                 <td>{{ ++$i }}</td>

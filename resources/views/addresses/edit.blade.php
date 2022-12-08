@@ -21,46 +21,46 @@
     <form action="{{ route('addresses.update',$address->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>CityName :</strong>
+    <!-- <div class=""> -->
+        <div class="row mb-3 mt-4">
+            <label class="col-md-4 col-form-label text-md-end">CityName :</label>
+            <div class="col-md-5">
                 <input type="text" name="city_name" value="{{ $address->city_name }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Landmark :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Landmark :</label>
+            <div class="col-md-5">
                 <input type="text" name="landmark" value="{{ $address->landmark }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Taluka :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Taluka :</label>
+            <div class="col-md-5">
                 <input type="text" name="taluka" value="{{ $address->taluka }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>District :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">District :</label>
+            <div class="col-md-5">
                 <input type="text" name="district" value="{{ $address->district }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>State :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">State :</label>
+            <div class="col-md-5">
                 <input type="text" name="state" value="{{ $address->state }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Country :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Country :</label>
+            <div class="col-md-5">
                 <input type="text" name="country" value="{{ $address->country }}" class="form-control" placeholder="">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Pin-code :</strong>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">Pin-code :</label>
+            <div class="col-md-5">
                 <input type="integer" name="pin_code" value="{{ $address->pin_code }}" class="form-control" placeholder="">
             </div>
         </div>
@@ -69,7 +69,7 @@
             <a class="btn btn-primary" href="{{ route('addresses.index') }}"> Back</a>
             <button type="submit" class="btn btn-success">Update</button>
         </div>
-    </div>
+    <!-- </div> -->
 </form>
 </div>
 @endsection
