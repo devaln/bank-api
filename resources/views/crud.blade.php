@@ -43,6 +43,12 @@
                     <div class="row mb-3">
                         <a class="col-form-label btn-outline-info" href="{{url('/addresses')}}">Address </a>
                     </div>
+                    <div class="row mb-3">
+                        <a class="col-form-label btn-outline-info" href="{{url('/cards')}}"> Cards</a>
+                    </div>
+                    <div class="row mb-3">
+                        <a class="col-form-label btn-outline-info" href="{{url('/transactions')}}"> Transactions</a>
+                    </div>
                 </div>
             </div>
         </div>
