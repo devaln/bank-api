@@ -12,8 +12,15 @@ class Nominee extends Model
     public $timestamps = true;
     protected $fillable = ['first_name', 'middle_name', 'last_name', 'contact', 'date_of_birth', 'gender', 'relation'];
 
-    public function userinformation()
+    /* One Nominee has one Xustomer Class. */
+    public function customer()
     {
-        return $this->belongsTo(User_information::class);
+        return $this->belongsTo(Customer::class);
+    }
+
+    /* One Nominee has one Address Class */
+    public function NomineeAddress()
+    {
+        return $this->morphOne(Address::class, 'addressable');
     }
 }

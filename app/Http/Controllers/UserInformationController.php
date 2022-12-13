@@ -13,7 +13,7 @@ class UserInformationController extends Controller
     {
         // $search = $request['search'] ?? "";
         // if($search != ""){
-        //     $userinformations = User_information::Where('account_number','LIKE','%'.$search.'%')->get();        
+        //     $userinformations = User_information::Where('account_number','LIKE','%'.$search.'%')->get();
         // }
         // else{
         //     $userinformations = User_information::latest()->paginate(10);
@@ -47,12 +47,17 @@ class UserInformationController extends Controller
             'maritial_status' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $imageName = time().'.'.$request->image->extension();  
+        $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
-        User_information::create($request->all());
-        return back()->with('success','userinformation created successfully.')->with('image',$imageName); 
+        /* if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            Auth()->user()->update(['image'=>$filename]);
+        } */
 
-        // return redirect()->route('userinformations.index')->with('success','userinformation created successfully.');
+        User_information::create($request->all());
+        // return back()->with('success','userinformation created successfully.')->with('image',$imageName);
+        return redirect()->route('userinformations.index')->with('success','userinformation created successfully.')->with('image',$imageName);
     }
 
 
@@ -86,15 +91,14 @@ class UserInformationController extends Controller
             'adhaar_card_number' => 'required',
             'maritial_status' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        
+
         ]);
-        $imageName = time().'.'.$request->image->extension();  
+        $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
         $userinformation->update($request->all());
-        return back()->with('success','Userinformation created successfully.')->with('image',$imageName); 
-        
-        // User_information::create($request->all());
-        // return redirect()->route('userinformations.index')->with('success','User updated successfully');
+        // return back()->with('success','Userinformation created successfully.')->with('image',$imageName);
+
+        return redirect()->route('userinformations.index')->with('success','User updated successfully')->with('image',$imageName);
     }
 
 
@@ -102,6 +106,16 @@ class UserInformationController extends Controller
     {
         $userinformation->delete();
         return redirect()->route('userinformations.index')->with('success','User deleted successfully');
+    }
+
+    public function upload(Request $request)
+    {
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            Auth()->user()->update(['image'=>$filename]);
+        }
+        return redirect()->back();
     }
 }
 

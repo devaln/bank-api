@@ -20,19 +20,15 @@ return new class extends Migration
             $table->boolean('work_status');
             $table->string('designation');
             $table->string('official_email');
-            // $table->unsignedBigInteger('address_id');
+            $table->morphs('departmentable');
+            $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->timestamps();
         });
-        
-        // Schema::table('employees', function($table) {
+
         //     $table->foreign('address_id')->references('id')->on('address')->onDelete('cascade');
-        // });
     }
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
+
     public function down()
     {
         Schema::dropIfExists('employees');

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!--SEO Meta Tags -->
     <meta name="description" content="Your description">
     <meta name="author" content="Your name">
@@ -28,7 +28,7 @@
 	<link href="css/styles.css" rel="stylesheet">
 	<!-- Favicon  -->
     <link rel="icon" href="images/newlogo.jpg">
-	
+
     <!-- b5 - scripts -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
@@ -40,7 +40,7 @@
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
             <!-- <div class="container"> -->
                 <!-- Image Logo -->
-                <a class="navbar-brand logo-image" href="{{ url('index2') }}"><img src="images/newlogo.jpg" ></a>  
+                <a class="navbar-brand logo-image" href="{{ url('index2') }}"><img src="images/newlogo.jpg" ></a>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ ('Laravel') }}
                 </a>
@@ -66,10 +66,6 @@
                                 </li>
                             @endif
                             @else
-                            <li class="nav-link">
-                                <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> -->
-                                   <a> {{ Auth::user()->email }}
-                                </a>
                             <li class="nav-item">
                                 <a class="nav-link page-scroll" href="/">Home <span class="sr-only">(current)</span></a>
                             </li>
@@ -87,37 +83,29 @@
                                     <a class="dropdown-item page-scroll" href="{{url('/terms')}}">Terms Conditions</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item page-scroll" href="{{url('/privacy')}}">Privacy Policy</a>
-                                    <div class="dropdown-divider"></div>
-                                    
+                                    <!-- <div class="dropdown-divider"></div>      -->
                                 </div>
                             </li>
-                       
+
                         <li class="nav-item">
                             <a class="nav-link page-scroll" href="#contact">Contact</a>
                         </li>
                         <!-- operations -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opreations</a>
+                        <li class="nav-item dropdown mr-4">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item page-scroll" href="{{url('/customers')}}">Customers</a>
+                                {{-- @if(User_information::with('user')->get('image'))
+                                    <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+                                @endif --}}
+                                <a class="dropdown-item page-scroll">{{ Auth::user()->email }}</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/employees')}}">Employees</a>
+                                <a class="dropdown-item page-scroll" href="{{url('/newforms')}}">Update</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/managers')}}">Managers</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/departments')}}">Departments</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/addresses')}}">Addresses</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/userinformations')}}">User Informations</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item page-scroll" href="{{url('/nominees')}}">Nominees</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item page-scroll" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
-                                </a>                           
+                                </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -125,7 +113,7 @@
                         </li>
                         @endguest
                     </ul>
-                    <!-- <span class="nav-item social-icons"> 
+                    <!-- <span class="nav-item social-icons">
                         <span class="fa-stack">
                             <a href="#your-link">
                                 <i class="fas fa-circle fa-stack-2x"></i>
@@ -139,7 +127,7 @@
         <!-- end of navigation -->
         @endelse
     </div>
-    <div class="" align="center"><br><br>
+    <div align="center">
         @yield('content')
     </div>
 </body>

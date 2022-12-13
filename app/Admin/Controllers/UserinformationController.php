@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Employee;
+use App\Models\User;
 use App\Models\User_information;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -37,6 +39,7 @@ class UserinformationController extends AdminController
         $grid->column('maritial_status', __('Maritial status'));
         $grid->column('adhaar_card_number', __('Adhaar card number'));
         $grid->column('pan_card_number', __('Pan card number'));
+        $grid->column('login_id', __('Login Id'));
         $grid->column('login_type', __('Login type'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -65,7 +68,9 @@ class UserinformationController extends AdminController
         $show->field('maritial_status', __('Maritial status'));
         $show->field('adhaar_card_number', __('Adhaar card number'));
         $show->field('pan_card_number', __('Pan card number'));
+        $show->field('login_id', __('Login id'));
         $show->field('login_type', __('Login type'));
+        $show->field('image', __('Image'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -81,7 +86,8 @@ class UserinformationController extends AdminController
     {
         $form = new Form(new User_information());
 
-        $form->number('user_id', __('User id'));
+        // $form->number('user_id', __('User id'));
+        $form->select('user_id')->options(User::all()->pluck('id'));
         $form->text('first_name', __('First name'));
         $form->text('middle_name', __('Middle name'));
         $form->text('last_name', __('Last name'));
@@ -91,7 +97,9 @@ class UserinformationController extends AdminController
         $form->text('maritial_status', __('Maritial status'));
         $form->number('adhaar_card_number', __('Adhaar card number'));
         $form->number('pan_card_number', __('Pan card number'));
+        $form->select('login_id')->options(Employee::all()->pluck('id'));
         $form->text('login_type', __('Login type'));
+        $form->image('image')->move('public/uploads/images/');
 
         return $form;
     }

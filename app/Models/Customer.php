@@ -12,8 +12,45 @@ class Customer extends Model
     public $timestamps = true;
     protected $fillable = ['account_number','account_limit','current_balance'];
 
+    /* One Customer has one User Information Class */
     public function userinformation()
     {
-        return $this->morphOne(User_information::class, 'data');
+        return $this->morphOne(User_information::class, 'userable');
+    }
+
+    /* One Customere have one Address class */
+    public function CustomerAddress()
+    {
+        return $this->morphOne(Address::class, 'addressable');
+    }
+
+    /* One Customer has one Nominee Class */
+    public function Nominee()
+    {
+        return $this->hasOne(Customer::class);
+    }
+
+    /* One Customer have many Transactions Class */
+    public function details()
+    {
+        return $this->hasMany(Transaction_Details::class);
+    }
+
+    /* One Customer has one Card Class */
+    public function card()
+    {
+        return $this->hasOne(Card::class);
+    }
+
+    /* One Customer has Many Transaction Class */
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    /* One Customer has one Account type Class */
+    public function type()
+    {
+        return $this->hasOne(Account_type::class);
     }
 }
