@@ -16,7 +16,7 @@
                     <th>First Name</th>
                     <th>Middle Name</th>
                     <th>last Name</th>
-                    <!-- <th>Ussssssser Email</th> -->
+                    {{-- <th>User Email</th> --}}
                     <th>Contact</th>
                     <th>Birth Date</th>
                     <th>gender</th>
@@ -31,14 +31,14 @@
                     <td>{{ $userinformation->first_name }}</td>
                     <td>{{ $userinformation->middle_name }}</td>
                     <td>{{ $userinformation->last_name }}</td>
-                    <!-- <td>z</td> -->
+                    {{-- <td>{{ $userinformation->$user_role->email }}</td> --}}
                     <td>{{ $userinformation->contact }}</td>
                     <td>{{ $userinformation->date_of_birth }}</td>
                     <td>{{ $userinformation->gender }}</td>
                     <td>{{ $userinformation->pan_card_number }}</td>
                     <td>{{ $userinformation->adhaar_card_number }}</td>
                     <td>{{ $userinformation->maritial_status }}</td>
-                    <td><img src="images/{{ Session::get('image') }}" height="50px" width="50px"></td>
+                    <td><img src="images/{{ $userinformation->image }}" height="50px" width="50px"></td>
                 </tr>
             </tbody>
         </table>

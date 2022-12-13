@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Auth;
 // });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function() {
+    Route::view('/home', 'home');
     Route::view('/crud', 'crud');
     Route::resource('/customers', CustomerController::class);
     Route::resource('/employees', EmployeeController::class);
@@ -29,7 +30,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/nominees', NomineeController::class);
     Route::resource('/transactions', TransactionController::class);
     Route::resource('/cards', CardController::class);
-        Route::resource('/transactions2', ['TransactionController::class', 'currentbalance']);
+    // Route::resource('/transactions2', ['TransactionController::class', 'currentbalance']);
+    Route::view('/newforms','newforms');
     
     Route::view('/index2','layouts.index2');
     Route::view('/privacy','layouts.privacy');

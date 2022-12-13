@@ -18,10 +18,8 @@ return new class extends Migration
             $table->bigInteger('account_number');
             $table->bigInteger('account_limit');
             $table->float('current_balance');
-
-            // $table->foreign('nominee_id');
+            $table->boolean('status')->default(0);
             // $table->foreign('account_type_id');
-            // $table->foreign('address_id');
             $table->timestamps();
         });
     }

@@ -23,29 +23,50 @@
         <div  class="card" align="center">
             <div class="card-body">
                 <legend align="left">Fill required detail below :-</legend><br>
-                <label class="col-md-4 col-form-label text-md-end">City Name:</label>
-                <div class="col-md-6">
-                    <input type="text" name="city_name"  class="form-control" placeholder="eg:'pune'">
+                {{-- City Name --}}
+                <div class="col-6">
+                    <label class="form-label">City Name:</label>
+                    <input type="text" name="city_name" value="{{ old('city_name')}}"  class="form-control {{ $errors->has('city_name') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('city_name'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('city_name') }}
+                    </div>
+                    @endif
                 </div>
-
+                {{-- Lanmark --}}
                 <label class="col-md-4 col-form-label text-md-end">Landmark :</label>
                 <div class="col-md-6">
-                    <input type="text" name="landmark"  class="form-control" placeholder="nearbylocation">
-                </div> 
-                
+                    <input type="text" name="landmark" value="{{ old('landmark')}}"  class="form-control {{ $errors->has('landmark') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('landmark'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('landmark') }}
+                    </div>
+                    @endif
+                </div>
+                {{-- Taluka --}}
                 <label class="col-md-4 col-form-label text-md-end">Taluka :</label>
                 <div class="col-md-6">
-                    <input type="text" name="taluka"  class="form-control" placeholder="">
+                    <input type="text" name="taluka" value="{{ old('taluka')}}"  class="form-control {{ $errors->has('taluka') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('taluka'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('taluka') }}
+                    </div>
+                    @endif
                 </div>
-                
+                {{-- District --}}
                 <label class="col-md-4 col-form-label text-md-end">District :</label>
                 <div class="col-md-6">
-                    <input type="text" name="district"  class="form-control" placeholder="">
+                    <input type="text" name="district" value="{{ old('district')}}"  class="form-control {{ $errors->has('district') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('district'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('district') }}
+                    </div>
+                    @endif
                 </div>
-
+                {{-- State --}}
                 <label for="ab" class="col-md-4 col-form-label text-md-end">{{ __('State :') }}</label>
                 <div class="col-md-6">
-                    <select class="form-select" id="ab" name="state" aria-label="Default select example" required>
+                    <select class="form-select {{ $errors->has('state') ? 'is-invalid' : '' }}" id="ab" name="state" aria-label="Default select example" required>
                         <option selected>Open this select menu</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -84,13 +105,33 @@
                         <option value="Uttarakhand">Uttarakhand</option>
                         <option value="West Bengal">West Bengal</option>
                     </select>
+                    @if($errors->has('state'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('state') }}
+                    </div>
+                    @endif
                 </div>
-
+                {{-- Cuntry --}}
+                <label class="col-md-4 col-form-label text-md-end">cuntry :</label>
+                <div class="col-md-6">
+                    <input type="text" name="cuntry" value="{{ old('cuntry')}}"  class="form-control {{ $errors->has('cuntry') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('cuntry'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('cuntry') }}
+                    </div>
+                    @endif
+                </div>
+                {{-- Pin Code --}}
                 <label class="col-md-4 col-form-label text-md-end">Pin-Code :</label>
                 <div class="col-md-6">
-                    <input type="integer" name="pincode"  class="form-control" placeholder="">
-                </div>  
-
+                    <input type="text" name="pin_code" value="{{ old('pin_code')}}"  class="form-control {{ $errors->has('pin_code') ? 'is-invalid' : '' }}" required />
+                    @if($errors->has('pin_code'))
+                    <div class="invalid-feedback">
+                    {{ $errors->first('pin_code') }}
+                    </div>
+                    @endif
+                </div>
+                {{-- Submit Button --}}
                 <div class="col-xs-12 col-lg-12 col-md-12 text-center">
                     <a class="btn btn-primary" href="{{ route('addresses.index') }}"> Back</a>
                     <button type="submit" class="btn btn-success">Submit</button>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('employee_count');
+            $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->timestamps();
         });
     }

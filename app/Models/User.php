@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-             
+
     ];
 
     /**
@@ -45,17 +45,5 @@ class User extends Authenticatable
     public function userinformation()
     {
         return $this->hasOne(User_information::class, 'user_id');
-    }
-
-    public function setUsernameAttribute($value) 
-    {
-        if ( empty($value) )
-        {
-        $this->attributes['user_id'] = NULL;
-        }
-        else
-        {
-            $this->attributes['user_id'] = $value;
-        }
     }
 }

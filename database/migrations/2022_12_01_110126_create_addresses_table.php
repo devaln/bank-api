@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('state');
             $table->string('country');
             $table->bigInteger('pin_code');
+            // $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
+            $table->morphs('addressable');
             $table->timestamps();
         });
     }

@@ -11,4 +11,10 @@ class Department extends Model
     protected $table = "departments";
     public $timestamps = true;
     protected $fillable = ['name','employee_count'];
+
+    /* One Department has one Employee Class */
+    public function Employee()
+    {
+        return $this->morphMany(Department::class, 'departmentable');
+    }
 }

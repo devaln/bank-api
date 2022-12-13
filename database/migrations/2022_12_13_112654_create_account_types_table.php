@@ -13,24 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('account_types', function (Blueprint $table) {
             $table->id();
-            $table->float('debit_ammount')->nullable();
-            $table->float('credit_ammount')->nullable();
-            $table->float('Current_balance')->nullable();
-            $table->text('description')->nullable();
+            $table->enum('type', ['Salary', 'Zero-balance', 'salaried -zero-balance']);
+            $table->float('loan_intrest_rate');
+            $table->float('saving_intrest_rate');
             /* Relational keys */
-            // $table->unsignedBigInteger('card_id')->index();
-            // $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
             $table->unsignedBigInteger('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('account_types');
     }
 };

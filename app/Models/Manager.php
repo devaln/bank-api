@@ -12,8 +12,9 @@ class Manager extends Model
     public $timestamps = true;
     protected $fillable = ['designation'];
 
+    /* One Manager has One User_information Class */
     public function userinformation()
     {
-        return $this->morphOne(User_information::class, 'data');
+        return $this->morphOne(User_information::class, 'userable');
     }
 }

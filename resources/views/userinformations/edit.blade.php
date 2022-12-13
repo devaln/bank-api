@@ -22,7 +22,6 @@
     @csrf
     @method('PUT')
     <div class="row">
-    <div class="row">
             <div class="mb-3">
                 <label class="col-md-4 col-form-label text-md-end">First Name :</label>
                 <div class="col-md-5">
@@ -77,22 +76,17 @@
                 <label class="col-md-4 col-form-label text-md-end">Maritial Status :</label>
                 <div class="col-md-5">
                     <input type="radio" name="maritial_status" value="{{$userinformation->maritial_status}}">&nbsp;Married&nbsp;&nbsp;
-                    <input type="radio" name="maritial_status" value="{{$userinformation->maritial_status}}"e">&nbsp;Unmarried&nbsp;&nbsp;
-                    <input type="radio" name="maritial_status" value="{{$userinformation->maritial_status}}"">&nbsp;Divorced&nbsp;&nbsp;
+                    <input type="radio" name="maritial_status" value="{{$userinformation->maritial_status}}">&nbsp;Unmarried&nbsp;&nbsp;
+                    <input type="radio" name="maritial_status" value="{{$userinformation->maritial_status}}">&nbsp;Divorced&nbsp;&nbsp;
                 </div>
             </div>
             <div class="mb-3">
                 <label class="col-md-4 col-form-label text-md-end" for="inputImage">Image:</label>
                 <div class="col-md-5">
-                <input 
-                    type="file" 
-                    name="image" 
-                    id="inputImage"
-                    class="form-control @error('image') is-invalid @enderror">
-  
-                @error('image')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
+                    <input type="file" name="image" value="{{$userinformation->image}}" id="inputImage" class="form-control @error('image') is-invalid @enderror">
+                    @error('image')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
         <div class="mb-3 text-center">

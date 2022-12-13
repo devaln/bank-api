@@ -11,4 +11,10 @@ class Address extends Model
     protected $table = "addresses";
     public $timestamps = true;
     protected $fillable = ['city_name','landmark','taluka','district','state','country','pin_code'];
+
+
+    public function addresssable()
+    {
+        return $this->morphTo();
+    }
 }
