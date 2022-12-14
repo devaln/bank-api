@@ -7,79 +7,54 @@ use Illuminate\Http\Request;
 
 class TransactionDetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $transaction_details = Transaction_Details::latest()->paginate(10);
+        return view('transactions_details.index', compact('transaction_details'))->with('i', (request()->input('page', 1)-1)*10);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('transactions_details.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'process'=>'required',
+        ]);
+        Transaction_Details::create($request->all());
+        return redirect('transactions_details.index')->with('Success', 'Transaction Created Successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Transaction_Details  $transaction_Details
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Transaction_Details $transaction_Details)
     {
-        //
+        return view('transactions_details.show', compact('transaction_Detail'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Transaction_Details  $transaction_Details
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Transaction_Details $transaction_Details)
     {
-        //
+        return view('transactions_details.edit', compact('transaction_Detail'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction_Details  $transaction_Details
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Transaction_Details $transaction_Details)
     {
-        //
+        $request->validate([
+            'process' => 'required',
+        ]);
+        $transaction_Details->update($request->all());
+        return redirect('transactions_details.index', compact('transaction_Detail'))->with('Success', 'Transaction detail are updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Transaction_Details  $transaction_Details
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Transaction_Details $transaction_Details)
     {
-        //
+        $transaction_Details->delete();
+        return redirect('transactions_details.index', compact('transaction_details'))->with('Success', 'Transaction deleted Successsfully');
     }
 }

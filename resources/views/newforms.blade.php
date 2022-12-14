@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('content')<br>
-<div class="container">
+@section('content')
+<div class="container"><br><br>
   @if ($errors->any())
     <div class="alert alert-danger">
       <strong>Whoops!</strong> something we are problems with your input.<br><br>

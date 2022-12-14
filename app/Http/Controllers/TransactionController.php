@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    
+
     public function index()
     {
         $transactions = Transaction::latest()->paginate(10);
@@ -38,7 +38,7 @@ class TransactionController extends Controller
         return view('transactions.show', compact('transaction'));
     }
 
- 
+
     public function edit(Transaction $transaction)
     {
         return view('transactions.edit', compact('transaction'));
@@ -65,7 +65,7 @@ class TransactionController extends Controller
 
     public function currenttransaction(Transaction $transaction)
     {
-        // $transaction->delete();
+        $transaction->delete();
         return view('transactions.trans', compact('transaction'));
     }
 

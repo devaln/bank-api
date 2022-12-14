@@ -128,7 +128,7 @@
         @endelse
     </div>
     <div align="center">
-        @yield('content')
+        <br><br>@yield('content')
     </div>
 </body>
 </html>

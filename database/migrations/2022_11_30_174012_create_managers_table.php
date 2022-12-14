@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
             $table->string('designation');
-            $table->morphs('user_info_id');
+            $table->morphs('user_info');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->timestamps();
         });

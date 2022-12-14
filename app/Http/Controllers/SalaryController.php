@@ -7,79 +7,57 @@ use Illuminate\Http\Request;
 
 class SalaryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $salary = Salary::latest()->paginate(10);
+        return view('salary.index', compact('salary'))->with('i' (request()->input('page', 1)-1)*10);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('salary.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ammount' => 'required',
+            'process' => 'required',
+        ]);
+        Salary::create($request->all());
+        return redirect('salary.index')->with('Success', 'Salary set successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Salary $salary)
     {
-        //
+        return view('salary.show', compact('salary'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Salary $salary)
     {
-        //
+        return view('salary.edit', compact('salary'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Salary $salary)
     {
-        //
+        $request->validate([
+            'ammount' => 'required',
+            'process' => 'required',
+        ]);
+        $salary->update($request->all());
+        return redirect('salary.index', compact('salary'))->with('Success', 'Salary Increment successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Salary  $salary
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Salary $salary)
     {
-        //
+        $salary->delete();
+        return redirect('salary.index', compact('salary'))->with('Success', 'Salary deleted successfully');
     }
 }
