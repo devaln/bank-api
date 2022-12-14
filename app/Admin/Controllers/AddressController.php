@@ -34,6 +34,8 @@ class AddressController extends AdminController
         $grid->column('state', __('State'));
         $grid->column('country', __('Country'));
         $grid->column('pin_code', __('Pin code'));
+        $grid->column('addressable_type', __('Addressable type'));
+        $grid->column('addressable_id', __('Addressable id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -58,6 +60,8 @@ class AddressController extends AdminController
         $show->field('state', __('State'));
         $show->field('country', __('Country'));
         $show->field('pin_code', __('Pin code'));
+        $show->field('addressable_type', __('Addressable type'));
+        $show->field('addressable_id', __('Addressable id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -80,6 +84,8 @@ class AddressController extends AdminController
         $form->text('state', __('State'));
         $form->text('country', __('Country'));
         $form->number('pin_code', __('Pin code'));
+        $form->text('addressable_type', __('Addressable type'));
+        $form->number('addressable_id', __('Addressable id'));
 
         return $form;
     }

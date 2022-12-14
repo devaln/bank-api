@@ -29,6 +29,7 @@ class DepartmentController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('employee_count', __('Employee count'));
+        $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -48,6 +49,7 @@ class DepartmentController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('employee_count', __('Employee count'));
+        $show->field('status', __('Status'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -65,6 +67,7 @@ class DepartmentController extends AdminController
 
         $form->text('name', __('Name'));
         $form->number('employee_count', __('Employee count'));
+        $form->switch('status', __('Status'));
 
         return $form;
     }

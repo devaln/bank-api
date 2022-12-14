@@ -32,6 +32,9 @@ class EmployeeController extends AdminController
         $grid->column('work_status', __('Work status'));
         $grid->column('designation', __('Designation'));
         $grid->column('official_email', __('Official email'));
+        $grid->column('departmentable_type', __('Departmentable type'));
+        $grid->column('departmentable_id', __('Departmentable id'));
+        $grid->column('status', __('Status'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -54,6 +57,9 @@ class EmployeeController extends AdminController
         $show->field('work_status', __('Work status'));
         $show->field('designation', __('Designation'));
         $show->field('official_email', __('Official email'));
+        $show->field('departmentable_type', __('Departmentable type'));
+        $show->field('departmentable_id', __('Departmentable id'));
+        $show->field('status', __('Status'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -74,6 +80,9 @@ class EmployeeController extends AdminController
         $form->switch('work_status', __('Work status'));
         $form->text('designation', __('Designation'));
         $form->text('official_email', __('Official email'));
+        $form->text('departmentable_type', __('Departmentable type'));
+        $form->number('departmentable_id', __('Departmentable id'));
+        $form->switch('status', __('Status'));
 
         return $form;
     }

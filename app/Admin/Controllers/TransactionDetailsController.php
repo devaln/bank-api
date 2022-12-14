@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Customer;
+use App\Models\Transaction_Details;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class CustomerController extends AdminController
+class TransactionDetailsController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Customer';
+    protected $title = 'Transaction_Details';
 
     /**
      * Make a grid builder.
@@ -24,13 +24,13 @@ class CustomerController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Customer());
+        $grid = new Grid(new Transaction_Details());
 
         $grid->column('id', __('Id'));
-        $grid->column('account_number', __('Account number'));
-        $grid->column('account_limit', __('Account limit'));
-        $grid->column('current_balance', __('Current balance'));
-        $grid->column('status', __('Status'));
+        $grid->column('process', __('Process'));
+        $grid->column('sender_id', __('Sender id'));
+        $grid->column('customer_id', __('Customer id'));
+        $grid->column('transaction_id', __('Transaction id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -45,13 +45,13 @@ class CustomerController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Customer::findOrFail($id));
+        $show = new Show(Transaction_Details::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('account_number', __('Account number'));
-        $show->field('account_limit', __('Account limit'));
-        $show->field('current_balance', __('Current balance'));
-        $show->field('status', __('Status'));
+        $show->field('process', __('Process'));
+        $show->field('sender_id', __('Sender id'));
+        $show->field('customer_id', __('Customer id'));
+        $show->field('transaction_id', __('Transaction id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -65,12 +65,12 @@ class CustomerController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Customer());
+        $form = new Form(new Transaction_Details());
 
-        $form->number('account_number', __('Account number'));
-        $form->number('account_limit', __('Account limit'));
-        $form->decimal('current_balance', __('Current balance'));
-        $form->switch('status', __('Status'));
+        $form->text('process', __('Process'));
+        $form->number('sender_id', __('Sender id'));
+        $form->number('customer_id', __('Customer id'));
+        $form->number('transaction_id', __('Transaction id'));
 
         return $form;
     }

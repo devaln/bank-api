@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Nominee;
-use App\Models\User_information;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -35,7 +34,8 @@ class NomineeController extends AdminController
         $grid->column('contact', __('Contact'));
         $grid->column('gender', __('Gender'));
         $grid->column('relation', __('Relation'));
-        $grid->column('user_info_id', __('User Information Id'));
+        $grid->column('status', __('Status'));
+        $grid->column('customer_id', __('Customer id'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -60,7 +60,8 @@ class NomineeController extends AdminController
         $show->field('contact', __('Contact'));
         $show->field('gender', __('Gender'));
         $show->field('relation', __('Relation'));
-        $show->field('user_info_id', __('User Information Id'));
+        $show->field('status', __('Status'));
+        $show->field('customer_id', __('Customer id'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -75,7 +76,7 @@ class NomineeController extends AdminController
     protected function form()
     {
         $form = new Form(new Nominee());
-        $form->select('user_info_id')->options(User_information::all()->pluck('id'));
+
         $form->text('first_name', __('First name'));
         $form->text('middle_name', __('Middle name'));
         $form->text('last_name', __('Last name'));
@@ -83,6 +84,8 @@ class NomineeController extends AdminController
         $form->number('contact', __('Contact'));
         $form->text('gender', __('Gender'));
         $form->text('relation', __('Relation'));
+        $form->switch('status', __('Status'));
+        $form->number('customer_id', __('Customer id'));
 
         return $form;
     }

@@ -16,7 +16,7 @@
 </head>
 <body>
 @include('layouts.app')
-<div class="container-storage" align="center">
+<div class="container-storage" align="center"><br><br>
     <h1 class="text-center text-dark mb-10">You can Operate following these operation : </h1>
     <div class="col-lg-4">
         <div class="card border-5px mt-30 w- h-90 mx-auto border-2 drop-shadow-2xl border-gray-700 rounded-lg bg-white px-4 py-8" align="center">
