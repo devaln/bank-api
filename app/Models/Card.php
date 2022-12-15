@@ -10,7 +10,7 @@ class Card extends Model
     use HasFactory;
     protected $table = "cards";
     public $timestamps = true;
-    protected $fillable = ['title', 'number', 'expiry_date', 'cvv_code'];
+    protected $fillable = ['title', 'number', 'expiry_date', 'cvv_code', 'user_info_id'];
 
     /* One Card has one Customer Class */
     public function customer()

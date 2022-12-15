@@ -20,7 +20,6 @@ return new class extends Migration
             $table->boolean('work_status');
             $table->string('designation');
             $table->string('official_email');
-            $table->morphs('departmentable');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->timestamps();
         });

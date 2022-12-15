@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Nominee;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class NomineeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Nominee::factory()->count(5)->create();
     }
 }

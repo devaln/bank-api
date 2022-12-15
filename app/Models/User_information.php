@@ -48,6 +48,12 @@ class User_information extends Model
         return $this->belongsTo(User::class,);
     }
 
+    /* One User Information has one Manager Class */
+    public function manager()
+    {
+        return $this->hasOne(Manager::class,);
+    }
+
     /* One User Information has one Customer || Employee || Manager */
     public function userable()
     {

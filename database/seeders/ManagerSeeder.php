@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Manager;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class ManagerSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Manager::factory()->count(5)->create();
     }
 }

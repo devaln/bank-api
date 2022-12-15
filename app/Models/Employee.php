@@ -22,7 +22,7 @@ class Employee extends Model
     /* One Employee has one Department Class */
     public function departmentable()
     {
-        return $this->morphTo();
+        return $this->morphMany(Department::class, 'departmentable');
     }
 
     /* One Employee has one Address Class */

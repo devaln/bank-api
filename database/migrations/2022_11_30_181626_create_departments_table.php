@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('departments', function (Blueprint $table) {
@@ -18,6 +13,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('employee_count');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
+            $table->morphs('departmentable');
             $table->timestamps();
         });
     }
