@@ -64,7 +64,7 @@
                 <input type="integer" name="pin_code" value="{{ $address->pin_code }}" class="form-control" placeholder="">
             </div>
         </div>
-        
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <a class="btn btn-primary" href="{{ route('addresses.index') }}"> Back</a>
             <button type="submit" class="btn btn-success">Update</button>

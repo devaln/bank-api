@@ -15,6 +15,6 @@ class Manager extends Model
     /* One Manager has One User_information Class */
     public function userinformation()
     {
-        return $this->morphOne(User_information::class, 'userable');
+        return $this->belongsTo(User_information::class);
     }
 }

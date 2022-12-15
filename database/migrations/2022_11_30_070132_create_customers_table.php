@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('account_number');
-            $table->bigInteger('account_limit');
-            $table->float('current_balance');
+            $table->float('account_limit');
+            $table->float('current_balance')->nullable();
             $table->boolean('status')->default(0);
             // $table->foreign('account_type_id');
             $table->timestamps();

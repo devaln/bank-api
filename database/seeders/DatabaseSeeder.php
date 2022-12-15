@@ -13,8 +13,20 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
+            User_InformationSeeder::class,
+            AddressSeeder::class,
+            CustomerSeeder::class,
+            ManagerSeeder::class,
+            Account_TypeSeeder::class,
+            CardSeeder::class,
+            NomineeSeeder::class,
+            AddressSeeder::class,
+            EmployeeSeeder::class,
+            DepartmentSeeder::class,
+            SalarySeeder::class,
+            TransactionSeeder::class,
+            Transaction_DetailsSeeder::class,
+            SenderSeeder::class,
         ]);
     }
 }

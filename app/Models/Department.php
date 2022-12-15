@@ -15,6 +15,6 @@ class Department extends Model
     /* One Department has one Employee Class */
     public function Employee()
     {
-        return $this->morphMany(Department::class, 'departmentable');
+        return $this->morphTo();
     }
 }
