@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->float('ammount');
             $table->enum('process', ['Pending', 'Processing', 'Failed']);
+            $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
+
             /* Relational keys */
             $table->unsignedBigInteger('employee_id')->index();
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');

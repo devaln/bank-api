@@ -49,9 +49,9 @@ class User_information extends Model
     }
 
     /* One User Information has one Manager Class */
-    public function manager()
+    public function transaction()
     {
-        return $this->hasOne(Manager::class,);
+        return $this->belongsTo(Transaction::class,);
     }
 
     /* One User Information has one Customer || Employee || Manager */

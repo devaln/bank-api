@@ -15,6 +15,6 @@ class SenderSeeder extends Seeder
      */
     public function run()
     {
-        Sender::factory()->count(5)->create();
+        Sender::factory()->count(50)->create();
     }
 }

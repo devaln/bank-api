@@ -11,13 +11,7 @@ class Transaction extends Model
     use HasFactory;
     protected $table = "transactions";
     public $timstamps = true;
-    protected $fillable = ['debit_ammount','credit_ammount', 'description'];
-
-    /* One Transation has on Transaction details Class */
-    public function details()
-    {
-        return $this->hasOne(Transaction_Details::class);
-    }
+    protected $fillable = ['ammount', 'description'];
 
     /* One Transaction has one Card Class */
     public function card()
@@ -28,7 +22,13 @@ class Transaction extends Model
     /* One Trnsaction has one Customer Class */
     public function customer()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->hasMany(Customer::class);
+    }
+
+    /* One Trnsaction has one User information Class */
+    public function userinformation()
+    {
+        return $this->hasMany(User_information::class);
     }
 
     /* One Transaction has many salary Class */
@@ -37,9 +37,9 @@ class Transaction extends Model
         return $this->belongsTo(Salary::class);
     }
 
-    /* One Transaction has one sender Class */
-    public function sender()
-    {
-        return $this->hasOne(Sender::class);
-    }
+    // /* One Transaction has one sender Class */
+    // public function sender()
+    // {
+    //     return $this->hasOne(Sender::class);
+    // }
 }

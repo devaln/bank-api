@@ -20,7 +20,7 @@ class ManagerFactory extends Factory
         return [
             'designation' => fake()->word,
             'status' => '1',
-            'user_info' => fake()->unique()->numberBetween(1, User_information::count()),
+            // 'user_info' => fake()->unique()->numberBetween(1, User_information::count()),
         ];
     }
 }

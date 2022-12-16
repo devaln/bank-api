@@ -11,6 +11,6 @@ class User_InformationSeeder extends Seeder
 
     public function run()
     {
-        User_information::factory()->count(5)->create();
+        User_information::factory()->count(150)->create();
     }
 }

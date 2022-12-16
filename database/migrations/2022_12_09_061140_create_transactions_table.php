@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->float('debit_ammount')->nullable();
-            $table->float('credit_ammount')->nullable();
-            $table->float('Current_balance')->nullable();
+            $table->float('ammount');
             $table->text('description')->nullable();
             /* Relational keys */
+            $table->unsignedBigInteger('sender_id')->index();
+            $table->foreign('sender_id')->references('id')->on('user_informations')->onDelete('cascade');
+            $table->unsignedBigInteger('reciever_id')->index();
+            $table->foreign('reciever_id')->references('id')->on('user_informations')->onDelete('cascade');
             // $table->unsignedBigInteger('card_id')->index();
             // $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
-            $table->unsignedBigInteger('customer_id')->index();
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }

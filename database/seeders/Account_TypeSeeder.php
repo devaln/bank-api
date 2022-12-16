@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Account_type;
+use App\Models\Customer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,6 +16,6 @@ class Account_TypeSeeder extends Seeder
      */
     public function run()
     {
-        Account_type::factory()->count(5)->create();
+        Account_type::factory()->count(Customer::count())->create();
     }
 }

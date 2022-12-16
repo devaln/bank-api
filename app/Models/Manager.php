@@ -12,9 +12,19 @@ class Manager extends Model
     public $timestamps = true;
     protected $fillable = ['designation'];
 
-    /* One Manager has One User_information Class */
-    public function userinformation()
+    /* Many Manager has One Employee Class */
+    public function employee()
     {
-        return $this->belongsTo(User_information::class);
+        return $this->morphMany(Employee::class, 'employable');
+    }
+
+    public function ManagerAddress()
+    {
+        return $this->morphOne(Manager::class, 'addressable');
+    }
+
+    public function manger()
+    {
+        return $this->morphOne(User_information::class, 'userable');
     }
 }

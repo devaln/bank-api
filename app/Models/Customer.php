@@ -30,12 +30,6 @@ class Customer extends Model
         return $this->hasOne(Customer::class);
     }
 
-    /* One Customer have many Transactions Class */
-    public function details()
-    {
-        return $this->hasMany(Transaction_Details::class);
-    }
-
     /* One Customer has one Card Class */
     public function card()
     {
@@ -45,7 +39,7 @@ class Customer extends Model
     /* One Customer has Many Transaction Class */
     public function transaction()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->belongsTo(Transaction::class);
     }
 
     /* One Customer has one Account type Class */
