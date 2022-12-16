@@ -12,9 +12,9 @@ class Department extends Model
     public $timestamps = true;
     protected $fillable = ['name','employee_count'];
 
-    /* One Department has one Employee Class */
-    public function Employee()
+    /* Many Department has one Employee Class */
+    public function employee()
     {
-        return $this->morphTo();
+        return $this->morphMany(Employee::class, 'employable');
     }
 }

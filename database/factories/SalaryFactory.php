@@ -19,10 +19,11 @@ class SalaryFactory extends Factory
     public function definition()
     {
         return [
-            'ammount' => fake()->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
+            'ammount' => fake()->randomFloat($nbMaxDecimals = 5, $min = 0, $max = 3),
             'process' => fake()->randomElement(['Pending', 'Processing', 'Failed']),
-            'employee_id' => fake()->unique()->numberBetween(1, Employee::count()),
-            'transaction_id' => fake()->unique()->numberBetween(1, Transaction::count()),
+            'employee_id' => fake()->numberBetween(1, Employee::count()),
+            'transaction_id' => fake()->numberBetween(1, Transaction::count()),
+            'status' => '1',
         ];
     }
 }

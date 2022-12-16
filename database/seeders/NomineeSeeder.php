@@ -15,6 +15,6 @@ class NomineeSeeder extends Seeder
      */
     public function run()
     {
-        Nominee::factory()->count(5)->create();
+        Nominee::factory()->count(50)->create();
     }
 }

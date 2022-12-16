@@ -14,19 +14,18 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             User_InformationSeeder::class,
-            AddressSeeder::class,
-            CustomerSeeder::class,
-            ManagerSeeder::class,
-            Account_TypeSeeder::class,
-            CardSeeder::class,
+            DepartmentSeeder::class,
             NomineeSeeder::class,
             AddressSeeder::class,
-            EmployeeSeeder::class,
-            DepartmentSeeder::class,
-            SalarySeeder::class,
+            Account_TypeSeeder::class,
+            CardSeeder::class,
             TransactionSeeder::class,
-            Transaction_DetailsSeeder::class,
+            SalarySeeder::class,
             SenderSeeder::class,
+            // AddressSeeder::class,
+            // CustomerSeeder::class,
+            // ManagerSeeder::class,
+            // EmployeeSeeder::class,
         ]);
     }
 }

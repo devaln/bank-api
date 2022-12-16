@@ -24,12 +24,6 @@ class Sender extends Model
         return $this->belongsTo(User_information::class);
     }
 
-    // /* One Sender has one Customer Class */
-    // public function customer()
-    // {
-    //     return $this->belongsTo(Customer::class);
-    // }
-
     /* One Sender has one Transaction Class */
     public function transaction()
     {

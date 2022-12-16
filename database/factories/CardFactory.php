@@ -25,8 +25,9 @@ class CardFactory extends Factory
             'expiry_date' => fake()->date('y-m-d'),
             'cvv_code' => fake()->numerify($string = '###'),
             'pin' => fake()->numerify($string = '####'),
-            'customer_id' => fake()->unique()->numberBetween(1, Customer::count()),
-            'user_info_id' => fake()->unique()->numberBetween(1, User_information::count()),
+            'customer_id' => fake()->numberBetween(1, Customer::count()),
+            'user_info_id' => fake()->numberBetween(1, User_information::count()),
+            'status' => '1',
         ];
     }
 }

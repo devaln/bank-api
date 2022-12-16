@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('account_types', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['Salary', 'Zero-balance', 'salaried -zero-balance']);
+            $table->enum('type', ['Salary', 'Zero-Balance', 'Salaried-Zero-Balance']);
             $table->float('loan_intrest_rate');
             $table->float('saving_intrest_rate');
+            $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
+
             /* Relational keys */
             $table->unsignedBigInteger('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');

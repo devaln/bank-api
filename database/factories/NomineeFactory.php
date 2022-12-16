@@ -26,7 +26,7 @@ class NomineeFactory extends Factory
             'gender' => fake()->randomElement(['Male', 'Female']),
             'relation' => fake()->randomElement(['Father', 'Mother']),
             'status' => '1',
-            'customer_id' => fake()->unique()->numberBetween(1, Customer::count()),
+            'customer_id' => fake()->numberBetween(1, Customer::count()),
         ];
     }
 }

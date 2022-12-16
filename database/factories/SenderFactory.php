@@ -21,10 +21,10 @@ class SenderFactory extends Factory
     public function definition()
     {
         return [
-            'user_info_id' => fake()->unique()->numberBetween(1, User_information::count()),
-            'transation_id' =>  fake()->unique()->numberBetween(1, Transaction::count()),
-            'customer_id' =>  fake()->unique()->numberBetween(1, Customer::count()),
-            'card_id' =>  fake()->unique()->numberBetween(1, Card::count()),
+            'user_info_id' => fake()->numberBetween(1, User_information::count()),
+            'transation_id' =>  fake()->numberBetween(1, Transaction::count()),
+            'customer_id' =>  fake()->numberBetween(1, Customer::count()),
+            'card_id' =>  fake()->numberBetween(1, Card::count()),
         ];
     }
 }

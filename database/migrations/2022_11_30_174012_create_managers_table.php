@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('designation');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             /* Relational keys */
-            $table->bigInteger('User_in_id')->unsigned()->index();
-            $table->foreign('user_in_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->bigInteger('User_in_id')->unsigned()->index();
+            // $table->foreign('user_in_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

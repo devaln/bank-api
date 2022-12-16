@@ -10,7 +10,7 @@ class Employee extends Model
     use HasFactory;
     protected $table = "employees";
     public $timestamps = true;
-    protected $fillable = ['education','date_of_joining','work_status','designation','official_email'];
+    protected $fillable = ['education','date_of_joining','designation','official_email','status'];
 
     // Relation Under this table
     /* One Employee has one User Information Class */
@@ -19,10 +19,10 @@ class Employee extends Model
         return $this->morphOne(User_information::class, 'userable');
     }
 
-    /* One Employee has one Department Class */
-    public function departmentable()
+    /* One Employee has Many Department || Manager Class */
+    public function employable()
     {
-        return $this->morphMany(Department::class, 'departmentable');
+        return $this->morphTo();
     }
 
     /* One Employee has one Address Class */

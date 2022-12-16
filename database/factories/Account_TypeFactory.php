@@ -19,9 +19,10 @@ class Account_TypeFactory extends Factory
     {
         return [
             'type' => fake()->randomElement(['Salary', 'Zero-Balance', 'Salaried-Zero-Balance']),
-            'loan_intrest_rate' => fake()->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
-            'saving_intrest_rate' => fake()->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = NULL),
-            'customer_id' => fake()->unique()->numberBetween(1, Customer::count()),
+            'loan_intrest_rate' => fake()->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
+            'saving_intrest_rate' => fake()->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 4),
+            'customer_id' => fake()->numberBetween(1, Customer::count()),
+            'status' => '1',
         ];
     }
 }

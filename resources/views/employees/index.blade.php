@@ -11,7 +11,7 @@
             <div class="pull-left text-center">
                 <h1 class="text-left  text-danger">Welcome To Employees Index page : </h1><hr><br>
             </div>
-            
+
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -27,8 +27,9 @@
                 <th>jioning Date</th>
                 <th>Designation</th>
                 <th>Official E-Mail</th>
-              
+
                 <th><a class=" btn btn-success" href="{{ route('employees.create') }}"> Add customer</a></th>
+                <th>Send Money</th>
             </tr>
         </thead>
         <tbody class="text-center">
@@ -43,6 +44,7 @@
                 <form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('employees.show',$employee->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('employees.edit',$employee->id) }}">Edit</a>
+                    <a class="btn btn-outline-success" href="{{ route('transactions.trans', $employee->id) }}">Send</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Do you really want to delete employee!')" class="btn btn-danger">Delete</button>
@@ -51,5 +53,6 @@
             @endforeach
         </tbody>
     </table>
+{!! $employees->links() !!} !!}
 </div>
 @endsection

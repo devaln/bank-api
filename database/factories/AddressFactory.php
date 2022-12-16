@@ -2,6 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\Customer;
+use App\Models\Employee;
+use App\Models\Manager;
+use App\Models\Nominee;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -10,13 +15,13 @@ use Illuminate\Support\Str;
  */
 class AddressFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+
+    protected $model = Address::class;
+
     public function definition()
     {
+        $addressable = $this->addressable();
+
         return [
             'city_name' => fake()->city,
             'landmark' => fake()->streetAddress,
@@ -25,8 +30,18 @@ class AddressFactory extends Factory
             'state' => fake()->state,
             'country' => fake()->country,
             'pin_code' => fake()->numerify($string = '######'),
-            'addressable_id' => fake()->unique()->randomDigit,
-            'addressable_type' => Str::random(4),
+            'addressable_id' => $addressable::factory(),
+            'addressable_type' => $addressable,
         ];
+    }
+
+    public function addressable()
+    {
+        return $this->faker->randomElement([
+            Customer::class,
+            Employee::class,
+            Nominee::class,
+            Manager::class,
+        ]);
     }
 }
