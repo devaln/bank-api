@@ -17,12 +17,14 @@
                     <th>Credit Ammount</th>
                 </tr>
             </thead>
+            {{-- @foreach ($transactions as $transaction) --}}
             <tbody>
                 <tr>
-                    <td>{{ $transaction->debit_ammount }}</td>
-                    <td>{{ $transaction->credit_ammount }}</td>
+                    <td>{{ $transaction->ammount }}</td>
+                    <td>{{ $transaction->description }}</td>
                 </tr>
             </tbody>
+            {{-- @endforeach --}}
         </table>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <a class="btn btn-primary" href="{{ route('transactions.index') }}"> Back</a>
