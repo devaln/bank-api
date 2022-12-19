@@ -11,7 +11,7 @@ class Transaction extends Model
     use HasFactory;
     protected $table = "transactions";
     public $timstamps = true;
-    protected $fillable = ['ammount', 'description'];
+    protected $fillable = ['ammount', 'description', 'sender_id', 'reciever_id'];
 
     /* One Transaction has one Card Class */
     public function card()
@@ -28,7 +28,7 @@ class Transaction extends Model
     /* One Trnsaction has one User information Class */
     public function userinformation()
     {
-        return $this->hasMany(User_information::class);
+        return $this->belongsTo(User_information::class);
     }
 
     /* One Transaction has many salary Class */

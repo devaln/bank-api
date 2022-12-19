@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Department;
 use App\Models\Employee;
 use App\Models\Manager;
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,6 +28,7 @@ class EmployeeFactory extends Factory
             'status' => '1',
             'employable_id' => $employable::Factory(),
             'employable_type' => $employable,
+            'customer_id' => fake()->numberBetween(1, Customer::count()),
         ];
     }
 

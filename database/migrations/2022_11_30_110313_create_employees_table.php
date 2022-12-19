@@ -21,11 +21,12 @@ return new class extends Migration
             $table->string('official_email');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->morphs('employable');
+            $table->unsignedBigInteger('customer_id')->index();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
 
         });
 
-        //     $table->foreign('address_id')->references('id')->on('address')->onDelete('cascade');
     }
 
 

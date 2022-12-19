@@ -11,7 +11,7 @@
             <div class="pull-left text-center">
                 <h1 class="text-center bg-light text-danger">This is Transactions Index page : </h1><hr><br>
             </div>
-            
+
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -23,23 +23,22 @@
         <thead class="text-center text-dark">
             <tr>
                 <th>No</th>
-                <th>Debit Ammount</th>
-                <th>Credit Ammount</th>
-                <th>#</th>
+                <th>Ammount</th>
+                <th>Description</th>
                 <th><a class=" btn btn-success" href="{{ route('transactions.create') }}"> Add </a></th>
             </tr>
         </thead>
         <tbody class="text-center">
             @foreach ($transactions as $transaction)
             <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $transaction->debit_amount }}</td>
-                <td>{{ $transaction->credit_ammount }}</td>
-                <td><a href="{{ route('transactions.currentbalance') }}" class="">Current Balance</a></td>
+                <td>{{ $transaction->id }}</td>
+                <td>{{ $transaction->ammount }}</td>
+                <td>{{ $transaction->description }}</td>
                 <td>
                 <form action="{{ route('transactions.destroy',$transaction->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('transactions.show',$transaction->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('transactions.edit',$transaction->id) }}">Edit</a>
+                    <a class="btn btn-outline-success" href="{{ route('transactions.create',$transaction->id) }}">Send</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Do you really want to delete  this transaction!')" class="btn btn-danger">Delete</button>
