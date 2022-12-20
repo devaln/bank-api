@@ -44,6 +44,15 @@
                         @endif
                     </div>
                 </div>
+                <div class="row mb-3">
+                    <label class="col-md-4 col-form-label text-md-end">sender_id :</label>
+                    <div class="col-md-5">
+                        <input type="float" name="sender_id" value="{{Auth::user()->id}}" class="form-control {{ $errors->has('sender_id') ? 'is-invalid' : '' }}" placeholder="" >
+                        @if($errors->has('sender_id'))
+                            <div class="invalid-feedback">{{ $errors->first('sender_id') }}</div>
+                        @endif
+                    </div>
+                </div>
 
                 <div class="row mb-3">
                     <label for="reciever_id" class="col-md-4 col-form-label text-md-end">{{ __('Reciever') }}</label>

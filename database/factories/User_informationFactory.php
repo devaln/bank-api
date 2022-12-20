@@ -30,6 +30,7 @@ class User_informationFactory extends Factory
             'maritial_status' => fake()->randomElement(['Married', 'Unmarried', 'Divorced']),
             'adhaar_card_number' => '123456789',
             'pan_card_number' => '123456789',
+            'status' => '1',
             'userable_id' => $userable::factory(),
             'userable_type' => $userable,
         ];

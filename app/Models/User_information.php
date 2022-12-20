@@ -13,34 +13,14 @@ class User_information extends Model
     public $timestamps = true;
     protected $fillable = ['user_id','first_name','middle_name','last_name','contact','date_of_birth','gender', 'adhaar_card_number', 'pan_card_number', 'image','maritial_status'];
 
- /*    public static function boot()
-    {
-        parent::boot();
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-        self::creating(function($model){
-            Customer::factory()->create(1);
-        });
-
-        self::created(function($model){
-            // ... code here
-        });
-
-        self::updating(function($model){
-            // ... code here
-        });
-
-        self::updated(function($model){
-            // ... code here
-        });
-
-        self::deleting(function($model){
-            // ... code here
-        });
-
-        self::deleted(function($model){
-            // ... code here
-        });
-    } */
+    //     self::creating(function ($model) {
+    //         Customer::factory()->create(1);
+    //     });
+    // }
 
     /* One User Information has one User Class */
     public function user()
