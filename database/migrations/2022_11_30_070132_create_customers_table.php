@@ -20,15 +20,12 @@ return new class extends Migration
             $table->float('current_balance')->nullable();
             $table->boolean('status')->default(0);
             // $table->foreign('account_type_id');
+            $table->unsignedBigInteger('card_id')->index();
+            $table->foreign('card_id')->references('id')->on('cards')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('customers');

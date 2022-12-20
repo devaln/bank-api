@@ -12,6 +12,15 @@ class Customer extends Model
     public $timestamps = true;
     protected $fillable = ['account_number','account_limit','current_balance'];
 
+    // public static function boot()
+    // {
+    //     parent::boot();
+
+    //     self::creating(function ($model) {
+    //         Card::factory()->create(1);
+    //     });
+    // }
+
     /* One Customer has one User Information Class */
     public function userinformation()
     {
