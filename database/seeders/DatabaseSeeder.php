@@ -14,20 +14,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CustomerSeeder::class,
-            User_InformationSeeder::class,
+            Account_TypeSeeder::class,
             DepartmentSeeder::class,
+            ManagerSeeder::class,
+            // CustomerSeeder::class,
+            // EmployeeSeeder::class,
+            User_InformationSeeder::class,
+            CardSeeder::class,
             NomineeSeeder::class,
             AddressSeeder::class,
-            Account_TypeSeeder::class,
-            CardSeeder::class,
             TransactionSeeder::class,
             SalarySeeder::class,
-            SenderSeeder::class,
-            // AddressSeeder::class,
-            // CustomerSeeder::class,
-            // ManagerSeeder::class,
-            // EmployeeSeeder::class,
         ]);
     }
 }

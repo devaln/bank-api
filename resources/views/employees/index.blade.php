@@ -53,6 +53,6 @@
             @endforeach
         </tbody>
     </table>
-{!! $employees->links() !!} !!}
+{!! $employees->links() !!}
 </div>
 @endsection

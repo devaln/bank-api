@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Card;
 use App\Models\Customer;
 use App\Models\User_information;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,6 +24,7 @@ class TransactionFactory extends Factory
             'description' => fake()->sentence,
             'sender_id' => fake()->numberBetween(1, User_information::count()),
             'reciever_id' => fake()->numberBetween(1, User_information::count()),
+            'card_id' => fake()->numberBetween(1, Card::count()),
         ];
     }
 }

@@ -6,12 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('account_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('employee_count');
+            $table->enum('type', ['Salary', 'Zero-Balance', 'Salaried-Zero-Balance']);
+            $table->float('loan_intrest_rate');
+            $table->float('saving_intrest_rate');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
             $table->timestamps();
         });
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('account_types');
     }
 };

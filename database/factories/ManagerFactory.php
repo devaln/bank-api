@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Department;
+use App\Models\Manager;
 use App\Models\User_information;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -20,7 +22,8 @@ class ManagerFactory extends Factory
         return [
             'designation' => fake()->word,
             'status' => '1',
-            // 'user_info' => fake()->unique()->numberBetween(1, User_information::count()),
+            'department_id' => fake()->numberBetween(1, Department::count()),
+            // 'user' => fake()->unique()->numberBetween(1, User_information::count()),
         ];
     }
 }

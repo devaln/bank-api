@@ -38,7 +38,7 @@
                 <div class="row mb-3">
                     <label class="col-md-4 col-form-label text-md-end">Description :</label>
                     <div class="col-md-5">
-                        <input type="float" name="description" value="{{ old('description')}}" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" placeholder="" >
+                        <input type="text" name="description" value="{{ old('description')}}" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" placeholder="" >
                         @if($errors->has('description'))
                             <div class="invalid-feedback">{{ $errors->first('description') }}</div>
                         @endif
@@ -47,7 +47,7 @@
                 <div class="row mb-3">
                     <label class="col-md-4 col-form-label text-md-end">sender_id :</label>
                     <div class="col-md-5">
-                        <input type="float" name="sender_id" value="{{Auth::user()->id}}" class="form-control {{ $errors->has('sender_id') ? 'is-invalid' : '' }}" placeholder="" >
+                        <input type="integer" name="sender_id" value="{{Auth::user()->id}}" class="form-control {{ $errors->has('sender_id') ? 'is-invalid' : '' }}" disabled>
                         @if($errors->has('sender_id'))
                             <div class="invalid-feedback">{{ $errors->first('sender_id') }}</div>
                         @endif

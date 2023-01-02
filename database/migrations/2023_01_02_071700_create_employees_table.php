@@ -20,16 +20,22 @@ return new class extends Migration
             $table->string('designation');
             $table->string('official_email');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
-            $table->morphs('employable');
+            $table->float('salary')->nullable();
             $table->unsignedBigInteger('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->unsignedBigInteger('department_id')->index();
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->unsignedBigInteger('manager_id')->index();
+            $table->foreign('manager_id')->references('id')->on('managers')->onDelete('cascade');
             $table->timestamps();
-
         });
-
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('employees');

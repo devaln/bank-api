@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Account_type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,8 +20,9 @@ class CustomerFactory extends Factory
         return [
             'account_number' => fake()->numerify($string = '############'),
             'account_limit' => '20000.00',//For ATM one time debit ammount.
-            'current_balance' => fake()->numerify('##000'),
+            'current_balance' => '50000',
             'status' => '1',
+            'account_type_id' => fake()->numberBetween(1, Account_type::count()),
         ];
     }
 }

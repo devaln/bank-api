@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('managers', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->string('designation');
+            $table->string('name');
+            $table->integer('employee_count');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
-            /* Relational keys */
-            // $table->bigInteger('User_in_id')->unsigned()->index();
-            // $table->foreign('user_in_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('managers');
+        Schema::dropIfExists('departments');
     }
 };

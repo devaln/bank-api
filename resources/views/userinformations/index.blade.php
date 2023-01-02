@@ -30,6 +30,7 @@
                 <th>Adhaar Card Number</th>
                 <th>Maritial Status</th>
                 <th>Profile Image</th>
+                <th> Send Money</th>
 
                 <th><a class="form-control btn btn-success" href="{{ route('userinformations.create') }}"> Add </a></th>
             </tr>
@@ -48,7 +49,7 @@
                 <td>{{ $userinformation->adhaar_card_number }}</td>
                 <td>{{ $userinformation->maritial_status }}</td>
                 <td><img src="/public/images/{{ $userinformation->image }}"></td>
-                {{-- <td><img src="images/{{ Session::get('image') }}" height="50px" width="50px"></td> --}}
+                <td><a class="btn btn-outline-success" href="{{ url('/send', $userinformation->id)}}">Send</a></td>
                 <td>
                 <form action="{{ route('userinformations.destroy',$userinformation->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('userinformations.show',$userinformation->id) }}">Show</a>
@@ -61,5 +62,6 @@
             @endforeach
         </tbody>
     </table>
+    {{ $userinformations->links() }}
 </div>
 @endsection

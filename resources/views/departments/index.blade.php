@@ -11,7 +11,7 @@
             <div class="pull-left text-center">
                 <h1 class="text-center bg-light text-danger">Welcome To departments Index page : </h1><hr><br>
             </div>
-            
+
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -46,5 +46,6 @@
             @endforeach
         </tbody>
     </table>
+    {{ $departments->links() }}
 </div>
 @endsection

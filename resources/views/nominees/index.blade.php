@@ -56,5 +56,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $nominees->links()}}
     </div>
 @endsection

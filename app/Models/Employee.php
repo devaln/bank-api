@@ -20,10 +20,10 @@ class Employee extends Model
     }
 
     /* Many Employee has One Department || Manager Class */
-    public function employable()
-    {
-        return $this->morphTo();
-    }
+    // public function employable()
+    // {
+    //     return $this->morphTo();
+    // }
 
     /* One Employee has one Address Class */
     public function EmployeeAddress()

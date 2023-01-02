@@ -11,7 +11,7 @@
             <div class="pull-left text-center">
                 <h1 class="text-left  text-danger">Welcome To Customer Index page : </h1><hr><br>
             </div>
-            
+
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -26,7 +26,7 @@
                 <th>Account Number</th>
                 <th>Account Limit</th>
                 <th>Current Balance</th>
-              
+
                 <th><a class="form-control btn btn-success" href="{{ route('customers.create') }}"> Add customer</a></th>
             </tr>
         </thead>
