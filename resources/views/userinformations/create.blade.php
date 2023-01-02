@@ -90,16 +90,8 @@
                         <input type="radio" id="mstatus" name="maritial_status" value="Divorced">&nbsp;Divorced&nbsp;&nbsp;
                     </div>
                 </div>
-                <!-- <div class="col-md-6 mb-3">
-                    <label class="control-label" for="select2-user_id">User Role:</label>
-                    <abbr title="Required">*</abbr>
-                    <select id="select2-user_id" class="form-control" name="user_id" data-toggle="select2" data-placeholder="Select a state" data-allow-clear="true">
-                    @foreach ($user_role as $user_roles)
-                        <option value="{{$user_roles->user_id}}">{{$user_roles->user_id}}</option>
-                    @endforeach
-                    </select>
-                </div> -->
-                {{-- <div class="row mb-3">
+
+                <div class="row mb-3">
                     <label class="col-md-4 col-form-label text-md-end" for="inputImage">Image:</label>
                     <div class="col-md-5">
                         <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
@@ -107,12 +99,24 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                </div> --}}
-                <form action="{{route('home')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <input type="file" name="image">
-                    <input type="submit" value="Upload">
-                </form>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="userable_type" class="col-md-4 col-form-label text-md-end">{{ __('Reciever') }}</label>
+                    <div class="col-md-4">
+                        <select name="userable_type" id="userable_type" value="{{ old('userable_type')}}" class="custom-select {{ $errors->has('userable_type') ? 'is-invalid' : '' }}">
+                            <option selected>Select user</option>
+                            {{-- @foreach ($userinformations as $userinformation) --}}
+                                <option value="Customer">Customer</option>
+                                <option value="Employee">Employee</option>
+                            {{-- @endforeach --}}
+                        </select>
+                        @if($errors->has('userable_type'))
+                            <div class="invalid-feedback">{{ $errors->first('userable_type') }}</div>
+                        @endif
+                    </div>
+                </div>
+
                 <div>
                     <a class="btn btn-primary" href="{{ route('userinformations.index') }}"> Back</a>
                     <button type="submit" class="btn btn-success">Submit</button>

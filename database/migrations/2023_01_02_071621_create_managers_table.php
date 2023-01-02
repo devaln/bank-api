@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('salaries', function (Blueprint $table) {
+        Schema::create('managers', function (Blueprint $table) {
             $table->id();
-            $table->float('ammount');
-            $table->enum('process', ['Pending', 'Processing', 'Failed']);
+            $table->string('designation');
             $table->boolean('status')->default(0)->comment('1 = Active and 0 = deactive');
-
             /* Relational keys */
-            $table->unsignedBigInteger('employee_id')->index();
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->unsignedBigInteger('transaction_id')->index();
-            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
+            $table->bigInteger('department_id')->unsigned()->index();
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salaries');
+        Schema::dropIfExists('managers');
     }
 };

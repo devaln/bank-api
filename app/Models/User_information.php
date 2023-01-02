@@ -43,7 +43,7 @@ class User_information extends Model
     /* One User Information has one Card Class */
     public function card()
     {
-        return $this->hasOne(Card::class);
+        return $this->belongsTo(Card::class);
     }
 
     /* One User Information has one Sender Class */

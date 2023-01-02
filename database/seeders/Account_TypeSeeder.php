@@ -16,6 +16,6 @@ class Account_TypeSeeder extends Seeder
      */
     public function run()
     {
-        Account_type::factory()->count(Customer::count())->create();
+        Account_type::factory()->count(3)->create();
     }
 }

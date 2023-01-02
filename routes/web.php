@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/cards', CardController::class);
     // Route::resource('/transactions2', ['TransactionController::class', 'currentbalance']);
     Route::view('/newforms','newforms');
+    Route::view('/send','transactions.trans');
 
     Route::view('/index2','layouts.index2');
     Route::view('/privacy','layouts.privacy');

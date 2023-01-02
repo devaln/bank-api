@@ -57,8 +57,8 @@ class Customer extends Model
         return $this->hasOne(Account_type::class);
     }
     /* One Customer has one Employee Class */
-    public function employee()
-    {
-        return $this->hasOne(Employee::class);
-    }
+    // public function employee()
+    // {
+    //     return $this->hasOne(Employee::class);
+    // }
 }

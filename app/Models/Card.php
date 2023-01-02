@@ -21,7 +21,7 @@ class Card extends Model
     /* One Card has one User */
     public function userinformation()
     {
-        return $this->belongsTo(User_information::class);
+        return $this->hasOne(User_information::class);
     }
 
     /* One Card has Many Transaction */

@@ -24,13 +24,17 @@ return new class extends Migration
             /* Relational keys */
             $table->unsignedBigInteger('customer_id')->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->unsignedBigInteger('user_info_id')->index();
-            $table->foreign('user_info_id')->references('id')->on('user_informations')->onDelete('cascade');
+            // $table->unsignedBigInteger('user_info_id')->index();
+            // $table->foreign('user_info_id')->references('id')->on('user_informations')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('cards');

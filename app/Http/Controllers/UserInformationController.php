@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\User_information;
 use Illuminate\Http\Request;
+use App\Http\Controllers\TransactionController;
+use App\Models\Customer;
+use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserInformationController extends Controller
 {
@@ -35,7 +40,6 @@ class UserInformationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id'=>'',
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -45,19 +49,36 @@ class UserInformationController extends Controller
             'pan_card_number' => 'required',
             'adhaar_card_number' => 'required',
             'maritial_status' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $imageName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
-        /* if($request->hasFile('image')){
-            $filename = $request->image->getClientOriginalName();
-            $request->image->storeAs('images',$filename,'public');
-            Auth()->user()->update(['image'=>$filename]);
-        } */
 
-        User_information::create($request->all());
-        // return back()->with('success','userinformation created successfully.')->with('image',$imageName);
-        return redirect()->route('userinformations.index')->with('success','userinformation created successfully.')->with('image',$imageName);
+        $imageName = '/images/'.time().'.'.uniqid().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        if($request->userable_type == 'Customer'){
+            Customer::factory()->count(1)->create();
+        }
+        else{
+            Employee::factory()->count(1)->create();
+        }
+        $data = array();
+        $data['user_id'] = Auth::user()->id;
+        $data['first_name'] = $request->first_name;
+        $data['middle_name'] = $request->middle_name;
+        $data['last_name'] = $request->last_name;
+        $data['contact'] = $request->contact;
+        $data['date_of_birth'] = $request->date_of_birth;
+        $data['gender'] = $request->gender;
+        $data['pan_card_number'] = $request->pan_card_number;
+        $data['adhaar_card_number'] = $request->adhaar_card_number;
+        $data['maritial_status'] = $request->maritial_status;
+        $data['image'] = $imageName;
+        $data['userable_type'] = $request->userable_type;
+        $data['userable_id'] = User_information::with('userable')->id;
+        // $data['userable_id'] = Customer::latest()->get('id')->first();
+
+        DB::table('user_informations')->insert($data);
+        return redirect()->route('userinformations.index')->with('success','userinformation created successfully.');
     }
 
 
@@ -108,14 +129,8 @@ class UserInformationController extends Controller
         return redirect()->route('userinformations.index')->with('success','User deleted successfully');
     }
 
-    public function upload(Request $request)
+    public function sendmoney()
     {
-        // if($request->hasFile('image')){
-        //     $filename = $request->image->getClientOriginalName();
-        //     $request->image->storeAs('images',$filename,'public');
-        //     Auth()->user()->update(['image'=>$filename]);
-        // }
-        // return redirect()->back();
     }
 }
 

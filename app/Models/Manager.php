@@ -13,10 +13,10 @@ class Manager extends Model
     protected $fillable = ['designation'];
 
     /* Many Manager has One Employee Class */
-    public function employee()
-    {
-        return $this->morphMany(Employee::class, 'employable');
-    }
+    // public function employee()
+    // {
+    //     return $this->morphMany(Employee::class, 'employable');
+    // }
 
     public function ManagerAddress()
     {

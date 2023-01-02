@@ -20,10 +20,10 @@ class SalaryFactory extends Factory
     {
         return [
             'ammount' => fake()->randomFloat($nbMaxDecimals = 5, $min = 0, $max = 3),
-            'process' => fake()->randomElement(['Pending', 'Processing', 'Failed']),
             'employee_id' => fake()->numberBetween(1, Employee::count()),
             'transaction_id' => fake()->numberBetween(1, Transaction::count()),
             'status' => '1',
+            'description' => fake()->sentence(),
         ];
     }
 }

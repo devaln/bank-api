@@ -18,10 +18,9 @@ class Account_TypeFactory extends Factory
     public function definition()
     {
         return [
-            'type' => fake()->randomElement(['Salary', 'Zero-Balance', 'Salaried-Zero-Balance']),
+            'type' => fake()->unique()->randomElement(['Salary', 'Zero-Balance', 'Salaried-Zero-Balance']),
             'loan_intrest_rate' => fake()->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
             'saving_intrest_rate' => fake()->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 4),
-            'customer_id' => fake()->numberBetween(1, Customer::count()),
             'status' => '1',
         ];
     }
