@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportUserInformation;
 use App\Models\User;
 use App\Models\User_information;
 use Illuminate\Http\Request;
 use App\Http\Controllers\TransactionController;
+use App\Imports\ImportUserInformation;
 use App\Models\Customer;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserInformationController extends Controller
 {
@@ -27,6 +30,15 @@ class UserInformationController extends Controller
         // dd($aa);
         $userinformations = User_information::latest()->paginate(10);
         return view('userinformations.index',compact('userinformations'))->with('i', (request()->input('page', 1) - 1) * 10);
+    }
+    /* Import and Export */
+    public function import(Request $request){
+        Excel::import(new ImportUserInformation, $request->file('file')->store('files'));
+        return redirect()->back();
+    }
+
+    public function export(Request $request){
+        return Excel::download(new ExportUserInformation, 'user-informations.xlsx');
     }
 
 
