@@ -30,9 +30,9 @@
                 <th>Adhaar Card Number</th>
                 <th>Maritial Status</th>
                 <th>Profile Image</th>
-                <th> Send Money</th>
 
                 <th><a class="form-control btn btn-success" href="{{ route('userinformations.create') }}"> Add </a></th>
+                <th> Send Money</th>
             </tr>
         </thead>
         <tbody>
@@ -49,15 +49,20 @@
                 <td>{{ $userinformation->adhaar_card_number }}</td>
                 <td>{{ $userinformation->maritial_status }}</td>
                 <td><img src="/public/images/{{ $userinformation->image }}"></td>
-                <td><a class="btn btn-outline-success" href="{{ url('/send', $userinformation->id)}}">Send</a></td>
                 <td>
-                <form action="{{ route('userinformations.destroy',$userinformation->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('userinformations.show',$userinformation->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('userinformations.edit',$userinformation->id) }}">Edit</a>
+                    <form action="{{ route('userinformations.destroy',$userinformation->id) }}" method="POST">
+                        <a class="btn btn-info" href="{{ route('userinformations.show',$userinformation->id) }}">Show</a>
+                        <a class="btn btn-primary" href="{{ route('userinformations.edit',$userinformation->id) }}">Edit</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Do you really want to delete userinformation!')" class="btn btn-danger">Delete</button>
+                    </form></td>
+                <td><form action="{{ route('userinformations.export') }}" method="GET">
                     @csrf
-                    @method('DELETE')
-                    <button type="submit" onclick="return confirm('Do you really want to delete userinformation!')" class="btn btn-danger">Delete</button>
+                    @method('EXPORT')
+                    <button type="submit" onclick="return confirm('Do you really want!')" class="btn btn-danger">Export</button>
                 </form></td>
+                <td><a class="btn btn-outline-success" href="{{ url('/send', $userinformation->id)}}">Send</a></td>
             </tr>
             @endforeach
         </tbody>

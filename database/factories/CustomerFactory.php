@@ -18,7 +18,7 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            'account_number' => fake()->numerify($string = '############'),
+            'account_number' => fake()->numerify($string = '10##########'),
             'account_limit' => '20000.00',//For ATM one time debit ammount.
             'current_balance' => '50000',
             'status' => '1',

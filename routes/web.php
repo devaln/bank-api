@@ -38,4 +38,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::view('/privacy','layouts.privacy');
     Route::view('/project','layouts.project');
     Route::view('/terms','layouts.terms');
+
+    Route::get('/export', [UserInformationController::class, 'export'])->name('userinformations.export');
 });

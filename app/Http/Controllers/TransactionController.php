@@ -34,22 +34,14 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $this->validate($request, [
             'ammount' => 'required',
             'description' => 'required',
-            'sender_id' => 'required_with:auth()->user()->id',
+            'sender_id' => 'required',
             'reciever_id' => 'required',/* |'unique:user_informations, id' */
         ]);
-        // dd($validator->fails());
-        if ($validator->fails()) {
-            if ($request->ajax()) {
-                return response()->json(['result' => 'error', 'message' => $validator->errors()->all()]);
-            } else {
-                return redirect()->route('transactions.create')
-                ->withErrors($validator)
-                ->withInput();
-            }
-        }
+        $data = array();
+
         $sender_id = Auth::user()->id;
         $reciever_id = $request->reciever_id;
         $ammount = $request->ammount;
@@ -58,11 +50,17 @@ class TransactionController extends Controller
             return redirect()->route('transactions.index')->with('Success', 'Your Card Is Inactive to Make a Transaction');
         }
         else{
-            $sender = DB::update('update customers set current_balance = current_balance - '.$ammount.' where id ='.$sender_id.'');
-            $reciever = DB::update('update customers set current_balance = current_balance + '.$ammount.' where id ='.$reciever_id.'');
-            dd($sender, $reciever);
+            $sender = Customer::find('id', $sender_id);
+            $sender->current_balance = ($sender->cureent_balance - $ammount);
+            $sender->save();
+            $reciever = Customer::find('id', $reciever_id);
+            $reciever->current_balance = ($reciever->cureent_balance + $ammount);
+            $reciever->save();
+            // $sender = DB::update('update customers set current_balance = current_balance - '.$ammount.' where id ='.$sender_id.'');
+            // $reciever = DB::update('update customers set current_balance = current_balance + '.$ammount.' where id ='.$reciever_id.'');
+            // dd($sender, $reciever);
             // $reciever = DB::update('update customers set current_balance = 50000');
-            dd($card_status);
+            // dd($card_status);
             Transaction::create($request->all());
             return redirect()->route('transactions.index')->with('Success', 'Transaction Successfull');
         }
@@ -83,12 +81,22 @@ class TransactionController extends Controller
 
     public function update(Request $request, Transaction $transaction)
     {
-        $request->validate([
+        $validator = validator::make($request->all(),[
             'ammount' => 'required',
             'description' => 'required',
             'sender_id' => 'required',
             'reciever_id' => 'required',
         ]);
+        // dd($validator->fails());
+        if ($validator->fails()) {
+            if ($request->ajax()) {
+                return response()->json(['result' => 'error', 'message' => $validator->errors()->all()]);
+            } else {
+                return redirect()->route('transactions.create')
+                ->withErrors($validator)
+                ->withInput();
+            }
+        }
         $transaction->update($request->all());
         return redirect()->route('transactions.index')->with('Success', 'Transaction updated successfully');
     }

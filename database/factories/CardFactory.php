@@ -26,7 +26,7 @@ class CardFactory extends Factory
             'cvv_code' => fake()->numerify($string = '###'),
             'pin' => fake()->numerify($string = '####'),
             'customer_id' => fake()->numberBetween(1, Customer::count()),
-            'status' => '1',
+            'status' => fake()->randomElement(['0', '1']),
         ];
     }
 }

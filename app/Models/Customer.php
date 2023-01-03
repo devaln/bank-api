@@ -36,7 +36,7 @@ class Customer extends Model
     /* One Customer has one Nominee Class */
     public function Nominee()
     {
-        return $this->hasOne(Customer::class);
+        return $this->hasOne(Nominee::class);
     }
 
     /* One Customer has one Card Class */
