@@ -17,6 +17,7 @@ class ExportUserInformation implements FromCollection
             'middle_name',
             'last_name',
             'contact',
+            'date_of_birth',
             'gender',
             'maritial_status',
             'adhaar_card_number',

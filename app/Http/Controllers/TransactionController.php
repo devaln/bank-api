@@ -34,36 +34,36 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'ammount' => 'required',
             'description' => 'required',
             'sender_id' => 'required',
             'reciever_id' => 'required',/* |'unique:user_informations, id' */
         ]);
-        $data = array();
-
         $sender_id = Auth::user()->id;
         $reciever_id = $request->reciever_id;
         $ammount = $request->ammount;
-        $card_status = DB::select('select status from cards where id = '.$sender_id.'');
-        if($card_status < 1){
-            return redirect()->route('transactions.index')->with('Success', 'Your Card Is Inactive to Make a Transaction');
-        }
-        else{
-            $sender = Customer::find('id', $sender_id);
-            $sender->current_balance = ($sender->cureent_balance - $ammount);
-            $sender->save();
-            $reciever = Customer::find('id', $reciever_id);
-            $reciever->current_balance = ($reciever->cureent_balance + $ammount);
-            $reciever->save();
-            // $sender = DB::update('update customers set current_balance = current_balance - '.$ammount.' where id ='.$sender_id.'');
-            // $reciever = DB::update('update customers set current_balance = current_balance + '.$ammount.' where id ='.$reciever_id.'');
-            // dd($sender, $reciever);
+        // $card_status = DB::select('select status from cards where id = '.$sender_id.'');
+        // if($card_status < 1){
+        //     return redirect()->route('transactions.index')->with('Success', 'Your Card Is Inactive to Make a Transaction');
+        // }
+        // else{
+            // $sender = Customer::find('id', $sender_id);
+            // $sender->current_balance = ($sender->current_balance - $ammount);
+            // // $sender->save();
+            // $reciever = Customer::find('id', $reciever_id);
+            // $reciever->current_balance = ($reciever->current_balance + $ammount);
+            // $reciever->save();
+            /* Older type of excecution */
+            $sender = DB::update('update customers set current_balance = current_balance - '.$ammount.' where id ='.$sender_id.'');
+            $reciever = DB::update('update customers set current_balance = current_balance + '.$ammount.' where id ='.$reciever_id.'');
             // $reciever = DB::update('update customers set current_balance = 50000');
             // dd($card_status);
+
+            dd($sender, $reciever);
             Transaction::create($request->all());
             return redirect()->route('transactions.index')->with('Success', 'Transaction Successfull');
-        }
+        // }
     }
 
 

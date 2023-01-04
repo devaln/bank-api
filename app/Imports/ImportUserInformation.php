@@ -21,9 +21,13 @@ class ImportUserInformation implements ToModel
             'contact' => $row[3],
             'date_of_birth' => $row[4],
             'gender' => $row[5],
-            'maritial_status' => $row[7],
-            'adhaar_card_number' => $row[8],
-            'pan_card_number' => $row[9],
+            'maritial_status' => $row[6],
+            'adhaar_card_number' => $row[7],
+            'pan_card_number' => $row[8],
+            'status' => $row[9],
+            'user_id' => $row[10],
+            'userable_type' => $row[11],
+            'userable_id' => $row[12],
         ]);
     }
 }

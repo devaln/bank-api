@@ -40,4 +40,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::view('/terms','layouts.terms');
 
     Route::get('/export', [UserInformationController::class, 'export'])->name('userinformations.export');
+    Route::post('/import', [UserInformationController::class, 'import'])->name('userinformations.import');
 });
