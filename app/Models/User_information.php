@@ -11,7 +11,22 @@ class User_information extends Model
     use HasFactory;
     protected $table = "user_informations";
     public $timestamps = true;
-    protected $fillable = ['user_id','first_name','middle_name','last_name','contact','date_of_birth','gender', 'adhaar_card_number', 'pan_card_number', 'image','maritial_status'];
+    protected $fillable = [
+        'user_id',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'contact',
+        'date_of_birth',
+        'gender',
+        'adhaar_card_number',
+        'pan_card_number',
+        'image',
+        'maritial_status',
+        'status',
+        'userable_type',
+        'userable_id',
+    ];
 
     // public static function boot()
     // {

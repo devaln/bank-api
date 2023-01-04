@@ -28,7 +28,7 @@ class UserInformationController extends Controller
         // }
         // $aa = User_information::find(1);
         // dd($aa);
-        $userinformations = User_information::latest()->paginate(10);
+        $userinformations = User_information::latest()->simplepaginate(10);
         return view('userinformations.index',compact('userinformations'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
     /* Import and Export */
