@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <h1 class="text-left text-dark mt-2">Welcome To User-Information Index page : </h1><br>
     <div class="center">
         <div class="col-lg-12 margin-tb">
             <form action="" class=" mt-4">
@@ -8,7 +9,6 @@
                   <input type="text" name="search" id="" class="form-control bg-light text-dark" value="" placeholder="Search by Name">
                 </div>
             </form>
-            <h1 class="text-left text-danger">Welcome To User-Information Index page : </h1><hr><br>
         </div>
     </div>
     @if ($message = Session::get('success'))
@@ -69,7 +69,7 @@
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Do you really want to delete userinformation!')" class="btn btn-danger">Delete</button>
                     </form></td>
-                <td><a class="btn btn-outline-success" href="{{ url('/send', $userinformation->id)}}">Send</a></td>
+                <td><a class="btn btn-outline-success" href="{{ route('userinformations.sendmoney', $userinformation->id)}}">Send</a></td>
             </tr>
             @endforeach
         </tbody>

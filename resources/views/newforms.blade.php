@@ -22,7 +22,7 @@
   <div class="card" align="ceneter">
     <div class="body text-left">
     {{-- User Information Form --}}
-      <form action="{{ route('userinformations.store') }}" method="POST" enctype="multipart/form-data" ><!-- User Informations -->
+      <form action="{{ route('userinformations.store') }}" method="POST" enctype="multipart/form-data" >
       @csrf
       <legend class="ml-4 mb-3 mt-4 text-success text-left"><b><u>Fill up the requirements </u></b>:-</legend><hr><br>
       <div class="text-center ml-4" align="center">

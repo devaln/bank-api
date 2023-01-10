@@ -11,7 +11,7 @@ class Transaction extends Model
     use HasFactory;
     protected $table = "transactions";
     public $timstamps = true;
-    protected $fillable = ['ammount', 'description', 'sender_id', 'reciever_id'];
+    protected $fillable = ['ammount', 'description', 'sender_id', 'reciever_id','card_id'];
 
     /* One Transaction has one Card Class */
     public function card()
