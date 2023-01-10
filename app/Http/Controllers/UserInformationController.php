@@ -141,8 +141,9 @@ class UserInformationController extends Controller
         return redirect()->route('userinformations.index')->with('success','User deleted successfully');
     }
 
-    public function sendmoney()
+    public function sendmoney(User_information $userinformation)
     {
+        return view('transactions.create',compact('userinformation'));
     }
 }
 

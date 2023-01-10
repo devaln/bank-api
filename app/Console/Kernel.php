@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Models\Employee;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,7 +16,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // $id = Employee::select('id')->get();
+        $employees = Employee::all();
+        foreach ($employees as $emp) {
+            $emp->customer->current_balance = ($emp->customer->current_balance + $emp->salary);
+            $emp->customer->update();
+        }
+        $schedule->command('Employee:update')
+        ->everyMinute()
+        ->runInBackground();
+        dd($emp->customer->current_balance);
     }
 
     /**

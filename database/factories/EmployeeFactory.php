@@ -25,7 +25,7 @@ class EmployeeFactory extends Factory
             'date_of_joining' => fake()->date('y-m-d'),
             'designation' => fake()->word,
             'official_email' => fake()->firstName."@bankapi.com",
-            'salary' => fake()->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
+            'salary' => fake()->numerify('##000.00'),
             'department_id' => fake()->numberBetween(1, Department::count()),
             'manager_id' => fake()->numberBetween(1, Manager::count()),
             'customer_id' => fake()->numberBetween(1, Customer::count()),
